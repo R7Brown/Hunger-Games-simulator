@@ -26,10 +26,12 @@ Tribute* Tribute::getTribute(int vector_size) {
 		Tribute tribute;
 		return &tribute;
 	}
-	int temp = rand() % roster.size();
+	int temp = rand() % usable.size;
+	int temp2 = usable[temp];
 	//This while loop makes sure that the randomly chosen tribute hasn't already performed an action today
-	while (!roster[temp].alive || roster[temp].usedToday)
-		temp = rand() % roster.size();
-	roster[temp].usedToday = true;
-	return &roster[temp];
+	//while (!roster[temp].alive || roster[temp].usedToday)
+	//	temp = rand() % roster.size();
+	roster[temp2].usedToday = true;
+	usable.remove(temp);
+	return &roster[temp2];
 }

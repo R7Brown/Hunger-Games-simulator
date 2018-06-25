@@ -19,6 +19,7 @@ const int MAX_STAT_VALUE = 10;
 //This number +7 is how many total stat points are available to tributes during their creation
 int STAT_POINTS = 33;
 
+LinkedList<int> usable = LinkedList<int>();
 vector <Tribute> roster(0);
 
 BOOL CtrlHandler(DWORD fdwCtrlType)
