@@ -1,8 +1,17 @@
 #pragma once
 #ifndef _LINKEDLIST_H_
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////       This Linked List class is extremely limited as it was created specifically for this project.       ////
+//// For most other work it will most likely need to be expanded, or the use of another library may be better ////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 template <class T>
 class LinkedList
 {
+	//Linked list node
 	template <class T>
 	class Node
 	{
@@ -19,9 +28,7 @@ public:
 	LinkedList<T>()
 	{
 		first->next = last;
-		first->element = NULL;
 		last->previous = first;
-		last->element = NULL;
 	}
 
 	~LinkedList<T>()
@@ -33,18 +40,16 @@ public:
 			{
 				iter->next = iter->next;
 				del->previous = del->next = nullptr;
-				del->element = NULL;
 				delete del;
 				del = iter;
 			}
 
 		iter->next = del->next = iter->previous = del->previous = nullptr;
-		iter->element = del->element = NULL;
-		delete first;
-		delete last;
-		first = last = nullptr;
+		delete iter, del, first, last;
+		iter = del = first = last = nullptr;
 	}
 
+	//Inserts element into the tail of the list
 	void insert(T in)
 	{
 		if (size == 0)
@@ -70,6 +75,8 @@ public:
 		}
 	}
 
+	//inserts element into any index of the list. Only indexes able to be inserted
+	//into are ones that already exist in the list.
 	void insert(int index, T in)
 	{
 		Node<T> * iter = first;
@@ -104,11 +111,29 @@ public:
 		iter = one = nullptr;
 	}
 
+	bool exists(T in)
+	{
+		Node<T> iter = first;
+
+		for (int i = 0; i < size; i++)
+		{
+			if (iter->element == in)
+			{
+				iter = nullptr;
+				return true;
+			}
+			iter = iter->next;
+		}
+		iter = nullptr;
+		return false;
+	}
+
+	//Removes element from specific index of the list.
 	void remove(int index)
 	{
 		Node<T> * iter = first;
 		Node<T> * del = iter;
-		if (index < size)
+		if (index < size && index >= 0)
 		{
 			if (size == 2)
 			{
@@ -144,7 +169,6 @@ public:
 				first = iter;
 				iter->previous = nullptr;
 				del->next = del->previous = nullptr;
-				del->element = NULL;
 				delete del;
 				del = nullptr;
 				size--;
@@ -155,7 +179,6 @@ public:
 				iter = last = last->previous;
 				iter->next = nullptr;
 				del->next = del->previous = nullptr;
-				del->element = NULL;
 				delete del;
 				del = iter = nullptr;
 				size--;
@@ -171,7 +194,6 @@ public:
 				iter->next->previous = iter->previous;
 				iter->previous->next = iter->next;
 				del->next = del->previous = nullptr;
-				del->element = NULL;
 				delete del, iter;
 				del = iter = nullptr;
 				size--;
@@ -182,6 +204,27 @@ public:
 			cerr << "ERROR: attepting to delete out of bounds index in linked list.\n\n";
 		}
 		iter = del = nullptr;
+	}
+	void remove(bool over,T rem)
+	{
+		roster[0].ID;
+		Node<T> * iter = first;
+		int index = 0;
+
+		try
+		{
+			while (iter->element != rem)
+			{
+				iter = iter->next;
+				index++;
+			}
+		}
+		catch (const std::exception&)
+		{
+			cerr << "ERROR: attempting to delete an element that does not exist.\n\n";
+			index = -1;
+		}
+		remove(index);
 	}
 
 	T getElement(int index)

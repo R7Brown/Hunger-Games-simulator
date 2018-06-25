@@ -107,6 +107,7 @@ int dayEventOne()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -130,6 +131,7 @@ int dayEventTwo()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -146,6 +148,7 @@ int dayEventThree()
 	tribute1->perception++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -160,6 +163,12 @@ int dayEventFour()
 	tribute1 = tribute1->getTribute(roster.size()); 
 	Tribute *tribute2 = NULL;
 	tribute2 = tribute2->getTribute(roster.size());
+	while (tribute2->ID == tribute1->ID)
+	{
+		tribute2 = NULL;
+		delete tribute2;
+		tribute2 = tribute2->getTribute(roster.size());
+	}
 	string action = "Tribute1 attempts to divert Tribute2's attention and run away,";
 	if (tribute1->charisma > tribute2->perception)
 		action.append(" and succeeds to escape.");
@@ -176,7 +185,9 @@ int dayEventFour()
 	action = nameReplacer(action, 1, *tribute1);
 	action = nameReplacer(action, 2, *tribute2);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute2->usedToday = true;
+	usable.remove(true, tribute2->ID);
 	tribute1 = NULL;
 	tribute2 = NULL;
 	delete tribute1;
@@ -202,6 +213,7 @@ int dayEventFive()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -226,6 +238,7 @@ int dayEventSix()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -242,6 +255,7 @@ int dayEventSeven()
 	tribute1->inventory.food++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -266,6 +280,7 @@ int dayEventEight()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -281,6 +296,7 @@ int dayEventNine()
 	string action = "Tribute1 tries to sleep through the day to hunt at night.\n";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action;
@@ -301,6 +317,7 @@ int dayEventTen()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -338,6 +355,7 @@ int dayEventEleven()
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -353,6 +371,7 @@ int dayEventTwelve()
 	string action = "Tribute1 is pricked by thorns while picking berries. No serious harm is done.";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -381,6 +400,7 @@ int dayEventThirteen()
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -408,6 +428,7 @@ int dayEventFourteen()
 		action.append(" but cannot find anything but some sticks to burn for a small fire.");
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -430,6 +451,7 @@ int dayEventFifteen()
 		action.append("Tribute1 attempted to make a slingshot but was unable to make one that didn't break upon first use.");
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -446,6 +468,7 @@ int dayEventSixteen()
 	tribute1->perception++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -468,6 +491,7 @@ int dayEventSdayEventeen()
 		action.append(" and decides to follow them for the day.");
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -488,6 +512,12 @@ int dayEventEighteen()
 			action.append(" and begins following Tribute2's trail.");
 			Tribute *tribute2 = NULL;
 			tribute2 = tribute2->getTribute(roster.size());
+			while (tribute2->ID == tribute1->ID)
+			{
+				tribute2 = NULL;
+				delete tribute2;
+				tribute2 = tribute2->getTribute(roster.size());
+			}
 			if (tribute1->endurance > tribute2->endurance)
 			{
 				action.append(" Tribute1 catches up to Tribute2 and the two begin to scuffle.\n");
@@ -500,7 +530,9 @@ int dayEventEighteen()
 					action = nameReplacer(action, 1, *tribute1);
 					action = nameReplacer(action, 2, *tribute2);
 					tribute1->usedToday = true;
+					usable.remove(true, tribute1->ID);
 					tribute2->usedToday = true;
+					usable.remove(true, tribute2->ID);
 					tribute1 = NULL;
 					tribute2 = NULL;
 					delete tribute1;
@@ -516,7 +548,9 @@ int dayEventEighteen()
 					action = nameReplacer(action, 1, *tribute1);
 					action = nameReplacer(action, 2, *tribute2);
 					tribute1->usedToday = true;
+					usable.remove(true, tribute1->ID);
 					tribute2->usedToday = true;
+					usable.remove(true, tribute2->ID);
 					tribute1 = NULL;
 					tribute2 = NULL;
 					delete tribute1;
@@ -530,7 +564,9 @@ int dayEventEighteen()
 					action = nameReplacer(action, 1, *tribute1);
 					action = nameReplacer(action, 2, *tribute2);
 					tribute1->usedToday = true;
+					usable.remove(true, tribute1->ID);
 					tribute2->usedToday = true;
+					usable.remove(true, tribute2->ID);
 					tribute1 = NULL;
 					tribute2 = NULL;
 					delete tribute1;
@@ -545,17 +581,19 @@ int dayEventEighteen()
 				action = nameReplacer(action, 1, *tribute1);
 				action = nameReplacer(action, 2, *tribute2);
 				tribute1->usedToday = true;
+				usable.remove(true, tribute1->ID);
 				tribute1 = NULL;
 				tribute2 = NULL;
 				delete tribute1;
 				delete tribute2;
 				cout << action << "\n";
-				return 2;
+				return 1;
 			}
 		}
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -689,6 +727,7 @@ int dayEventThirtyNine()
 	string action = "Tribute1 picks flowers";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
