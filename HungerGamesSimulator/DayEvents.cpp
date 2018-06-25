@@ -449,7 +449,7 @@ int dayEventSixteen()
 	return 1;
 }
 
-int dayEventSdayEventeen()
+int dayEventSeventeen()
 {
 	if (usableTributes < 1)
 		return 0;
@@ -542,6 +542,7 @@ int dayEventEighteen()
 				action = nameReplacer(action, 1, *tribute1);
 				action = nameReplacer(action, 2, *tribute2);
 				tribute1->usedToday = true;
+				tribute2->usedToday = true;
 				tribute1 = NULL;
 				tribute2 = NULL;
 				delete tribute1;
@@ -561,6 +562,9 @@ int dayEventEighteen()
 
 int dayEventNineteen() 
 {
+	if (usableTributes < 2)
+		return 0;
+	
 	string action = "Tribute1 stalks Tribute2";
 	return 0;
 }
@@ -701,7 +705,7 @@ int dayEventForty()
 vector <func_ptr> dayEvents = {	dayEventOne,		dayEventTwo,			dayEventThree,			dayEventFour,		dayEventFive,
 								dayEventSix,		dayEventSeven,			dayEventEight,			dayEventNine,		dayEventTen,
 								dayEventEleven,		dayEventTwelve,			dayEventThirteen,		dayEventFourteen,	dayEventFifteen,
-								dayEventSixteen,	dayEventSdayEventeen,	dayEventEighteen,		dayEventNineteen,	dayEventTwenty,
+								dayEventSixteen,	dayEventSeventeen,		dayEventEighteen,		dayEventNineteen,	dayEventTwenty,
 								dayEventTwentyOne,	dayEventTwentyTwo,		dayEventTwentyThree,	dayEventTwentyFour,	dayEventTwentyFive,
 								dayEventTwentySix,	dayEventTwentySeven,	dayEventTwentyEight,	dayEventTwentyNine,	dayEventThirty,
 								dayEventThirtyOne,	dayEventThirtyTwo,		dayEventThirtyThree,	dayEventThirtyFour,	dayEventThirtyFive,
