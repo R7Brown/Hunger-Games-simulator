@@ -1,15 +1,37 @@
 //everyday multiply chance of arena event to deem if happening. Baseline = 15% will go down from there. Every day # 10 one will happen if it hasn't already
 #include "Header.h"
+#include <Windows.h>
+#include <algorithm>
+
+#ifndef max
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+#endif
+#ifndef min
+#define min(a,b) (((a) < (b)) ? (a) : (b))
+#endif
+
+#undef max
+#undef min
+
 
 //Maximum value any stat can have
 const int MAX_STAT_VALUE = 10;
 //This number +7 is how many total stat points are available to tributes during their creation
 int STAT_POINTS = 33;
 
+LinkedList<int> usable = LinkedList<int>();
 vector <Tribute> roster(0);
+
+BOOL CtrlHandler(DWORD fdwCtrlType)
+{
+	cout << endl;
+	return true;
+}
 
 int main() {
 	int choice = 0;
+
+	SetConsoleCtrlHandler((PHANDLER_ROUTINE)CtrlHandler, true);
 
 	cout << "Hello and Welcome to the Hunger Games Simulator Redux\n";
 	cout << "This simulator is currently in Beta\n";
@@ -19,6 +41,7 @@ int main() {
 
 	while (true) 
 	{
+		cout.clear();
 		cout << "-------------------------------------------------------------\n";
 		cout << "Please select what you would to do:\n";
 
@@ -35,7 +58,7 @@ int main() {
 		while (!(cin >> choice)) 
 		{
 			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
 			cout << "Invalid input.  Try again: ";
 		}
 
@@ -306,7 +329,7 @@ void editRoster() {
 		if (!(cin >> editID))
 		{
 			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
 			cout << "Invalid input.  Try again:\n";
 			editID = -1;
 		}
@@ -327,7 +350,7 @@ void editRoster() {
 		if (!(cin >> c))
 		{
 			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
 			cout << "Invalid input.  Try again:\n";
 			c = '\0';
 		}

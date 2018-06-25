@@ -17,6 +17,8 @@
 int livingTributes;
 int usableTributes;
 
+void resetUsable();
+
 void simulation() 
 {
 	if (roster.size() == 0)
@@ -32,6 +34,7 @@ void simulation()
 	while (livingTributes > 1)
 	{
 		cout << "Day: " << dayNum << "\n";
+		resetUsable();
 		while (usableTributes > 0)
 		{
 			usableTributes = usableTributes - (dayEvents[rand() % dayEvents.size()]());
@@ -40,6 +43,19 @@ void simulation()
 		while (usableTributes > 0)
 		{
 
+		}
+	}
+}
+
+void resetUsable()
+{	
+	usableTributes = 0;
+	for (int i = 0; i < roster.size(); i++)
+	{
+		if (roster[i].alive)
+		{
+			usable.insert(i);
+			usableTributes++;
 		}
 	}
 }

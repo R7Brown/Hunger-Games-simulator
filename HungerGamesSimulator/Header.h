@@ -38,6 +38,8 @@
 #include<vector>
 #include<time.h>
 #include<stdlib.h>
+#include<list>
+#include"LinkedList.h"
 using namespace std;
 
 struct Inventory {
@@ -103,6 +105,7 @@ extern vector <Tribute> roster;				//Source.cpp
 extern vector <func_ptr> dayEvents;			//DayEvents.cpp
 extern int livingTributes;					//Simulation.cpp && DayEvents.cpp
 extern int usableTributes;					//Simulation.cpp && DayEvents.cpp
+extern LinkedList<int> usable;					//Simulation.cpp && Tribute.cpp
 
 //SIMULATION FUNCTION
 extern void simulation();
