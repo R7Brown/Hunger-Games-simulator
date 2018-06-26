@@ -33,6 +33,7 @@ void simulation()
 
 	while (livingTributes > 1)
 	{
+		dayNum++;
 		cout << "Day: " << dayNum << "\n";
 		resetUsable();
 		while (usableTributes > 0)
@@ -47,6 +48,8 @@ void simulation()
 	}
 }
 
+//this method will reset the usable list each new day with the id number of each tribute that is alive.
+//is also resets the number of usableTributes each day, which will also be the same as alive tributes.
 void resetUsable()
 {	
 	usableTributes = 0;
@@ -54,6 +57,7 @@ void resetUsable()
 	{
 		if (roster[i].alive)
 		{
+			roster[i].usedToday = false;
 			usable.insert(i);
 			usableTributes++;
 		}
