@@ -767,20 +767,63 @@ int dayEventTwentyOne()
 
 int dayEventTwentyTwo()
 {
-	string action = "Tribute1 attempts to find a way out of the arena";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	string action = "Tribute1 spends his/her1 day trying to find a way out of the arena.";
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int dayEventTwentyThree()
 {
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
 	string action = "Tribute1 wonders how long the game would take if he/she1 hid and waited for the other tributes to starve";
-	return 0;
+	if (tribute1->intelligence > 4)
+	{
+		action.append(" and realizes how stupid of an idea this is and decides to actually do something with his/her1 day.");
+		action = nameReplacer(action, 1, *tribute1);
+		tribute1 = NULL;
+		delete tribute1;
+		cout << action << "\n";
+		return 0;
+	}
+	else
+		action.append(" and spends the entire day thinking about it, doing nothing productive to his/her1 survival.");
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int dayEventTwentyFour()
 {
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
 	string action = "Tribute1 falls down a small cliff and is knocked out for the day";
-	return 0;
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	if (tribute1->luck < 4)
+		tribute1->injury++;
+	usable.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int dayEventTwentyFive()
