@@ -111,6 +111,7 @@ public:
 		iter = one = nullptr;
 	}
 
+	//Ensures that a particular element exists in the list
 	bool exists(T in)
 	{
 		Node<T> iter = first;
@@ -202,9 +203,14 @@ public:
 		else
 		{
 			cerr << "ERROR: attepting to delete out of bounds index in linked list.\n\n";
+			exit(1);
 		}
 		iter = del = nullptr;
 	}
+
+	//removes a certain element from the list as specified.
+	//TODO: create different function instead of just overloading the remove function
+	//This works but is somewhat confusing.
 	void remove(bool over,T rem)
 	{
 		roster[0].ID;
@@ -227,6 +233,7 @@ public:
 		remove(index);
 	}
 
+	//gets element at a certain index of the list.
 	T getElement(int index)
 	{
 		Node<T> * iter = first;
@@ -240,6 +247,8 @@ public:
 		return value;
 	}
 
+	//bracket operator allows the list to be read like an array.
+	//This only works for reads, not writes to the list.
 	T operator [] (int& index)
 	{
 		return getElement(index);
