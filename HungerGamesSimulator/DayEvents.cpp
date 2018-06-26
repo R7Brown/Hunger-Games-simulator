@@ -6,7 +6,7 @@ string pronounReplacer(string action, Tribute tribute, int count) {
 	string himHer;
 	string hisHer;
 	string heShe;
-	string himselfHerself; 
+	string himselfHerself;
 	string rHimHer = "him/her" + to_string(count);
 	string rHisHer = "his/her" + to_string(count);
 	string rHeShe = "he/she" + to_string(count);
@@ -42,7 +42,7 @@ string nameReplacer(string action, int i, Tribute tribute)
 {
 	string toReplace = "Tribute";
 	toReplace.append(to_string(i));
-	action = pronounReplacer(action, tribute,i);
+	action = pronounReplacer(action, tribute, i);
 	while (action.find(toReplace) != string::npos)
 		action.replace(action.find(toReplace), 8, tribute.name);
 	return action;
@@ -65,10 +65,10 @@ int dayEventExample()
 	//Action is the string that determines the uniqueness of each dayEvent. You can make it whatever you want really
 	string action = "";
 	/************************************************
-		Checks go here based on what the dayEvent is
-		Checks can check anything from stats to inventory to injuries
-		Take care to edit stats, inventory, injuries etc. based on what the dayEvent is
-		Otherwise you're gonna get tributes with inventories and injuries and kills that don't match the output
+	Checks go here based on what the dayEvent is
+	Checks can check anything from stats to inventory to injuries
+	Take care to edit stats, inventory, injuries etc. based on what the dayEvent is
+	Otherwise you're gonna get tributes with inventories and injuries and kills that don't match the output
 	*************************************************/
 	//Sending action to the nameReplacer function also sends it to the pronounReplacer function
 	//This is purely for output, since tributes and their stuff will still be edited by the dayEvent
@@ -87,8 +87,8 @@ int dayEventExample()
 	return number_of_tributes;
 }
 
-int dayEventOne() 
-{ 
+int dayEventOne()
+{
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
@@ -116,7 +116,7 @@ int dayEventOne()
 	return 1;
 }
 
-int dayEventTwo() 
+int dayEventTwo()
 {
 	if (usableTributes < 1)
 		return 0;
@@ -140,7 +140,7 @@ int dayEventTwo()
 	return 1;
 }
 
-int dayEventThree() 
+int dayEventThree()
 {
 	if (usableTributes < 1)
 		return 0;
@@ -162,7 +162,7 @@ int dayEventFour()
 	if (usableTributes < 2)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size()); 
+	tribute1 = tribute1->getTribute(roster.size());
 	Tribute *tribute2 = NULL;
 	tribute2 = tribute2->getTribute(roster.size());
 	while (tribute2->ID == tribute1->ID)
@@ -599,7 +599,7 @@ int dayEventEighteen()
 	return 1;
 }
 
-int dayEventNineteen() 
+int dayEventNineteen()
 {
 	string action = "Tribute1 stalks Tribute2";
 	return 0;
@@ -739,11 +739,11 @@ int dayEventForty()
 	return 0;
 }
 
-vector <func_ptr> dayEvents = {	dayEventOne,		dayEventTwo,			dayEventThree,			dayEventFour,		dayEventFive,
-								dayEventSix,		dayEventSeven,			dayEventEight,			dayEventNine,		dayEventTen,
-								dayEventEleven,		dayEventTwelve,			dayEventThirteen,		dayEventFourteen,	dayEventFifteen,
-								dayEventSixteen,	dayEventSdayEventeen,	dayEventEighteen,		dayEventNineteen,	dayEventTwenty,
-								dayEventTwentyOne,	dayEventTwentyTwo,		dayEventTwentyThree,	dayEventTwentyFour,	dayEventTwentyFive,
-								dayEventTwentySix,	dayEventTwentySeven,	dayEventTwentyEight,	dayEventTwentyNine,	dayEventThirty,
-								dayEventThirtyOne,	dayEventThirtyTwo,		dayEventThirtyThree,	dayEventThirtyFour,	dayEventThirtyFive,
-								dayEventThirtySix,	dayEventThirtySeven,	dayEventThirtyEight,	dayEventThirtyNine,	dayEventForty };
+vector <func_ptr> dayEvents = { dayEventOne,		dayEventTwo,			dayEventThree,			dayEventFour,		dayEventFive,
+dayEventSix,		dayEventSeven,			dayEventEight,			dayEventNine,		dayEventTen,
+dayEventEleven,		dayEventTwelve,			dayEventThirteen,		dayEventFourteen,	dayEventFifteen,
+dayEventSixteen,	dayEventSdayEventeen,	dayEventEighteen,		dayEventNineteen,	dayEventTwenty,
+dayEventTwentyOne,	dayEventTwentyTwo,		dayEventTwentyThree,	dayEventTwentyFour,	dayEventTwentyFive,
+dayEventTwentySix,	dayEventTwentySeven,	dayEventTwentyEight,	dayEventTwentyNine,	dayEventThirty,
+dayEventThirtyOne,	dayEventThirtyTwo,		dayEventThirtyThree,	dayEventThirtyFour,	dayEventThirtyFive,
+dayEventThirtySix,	dayEventThirtySeven,	dayEventThirtyEight,	dayEventThirtyNine,	dayEventForty };

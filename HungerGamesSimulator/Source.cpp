@@ -93,7 +93,8 @@ int main() {
 			break;
 		case 7:
 			system("CLS");
-			dayEvents[0]();
+			if (true && true)
+				cout << "Looping";
 			//cout << roster[getTribute(roster.size())].name << endl;
 			break;
 		default:
