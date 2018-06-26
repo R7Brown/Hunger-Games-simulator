@@ -324,9 +324,6 @@ int dayEventTen()
 	return 1;
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////
-//***THIS METHOD WILL CAUSE AN INACCURATE NUMBER OF USABLETRIBUTES WITH CERTAIN CONDITIONS***//
-///////////////////////////////////////////////////////////////////////////////////////////////
 int dayEventEleven()
 {
 	if (usableTributes < 1)
@@ -602,14 +599,87 @@ int dayEventEighteen()
 
 int dayEventNineteen()
 {
+	if (usableTributes < 2)
+		return 0;
+	Tribute *tribute1 = NULL;
+	Tribute *tribute2 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	tribute2 = tribute2->getTribute(roster.size());
 	string action = "Tribute1 stalks Tribute2";
-	return 0;
+	if (tribute2->perception > tribute1->agility)
+	{
+		action.append(" but Tribute2 realizes that he/she1 is following him/her2 and domes Tribute1 with a rock before running off.");
+		tribute1->injury++;
+		action = nameReplacer(action, 1, *tribute1);
+		action = nameReplacer(action, 2, *tribute2);
+		tribute1->usedToday = true;
+		usable.remove(true, tribute1->ID);
+		tribute1 = NULL;
+		tribute2 = NULL;
+		delete tribute1;
+		delete tribute2;
+		cout << action << "\n";
+		return 1;
+	}
+	else if (tribute1->agility > tribute2->perception)
+	{
+		action.append(" and successfully catches Tribute2 in an ambush and manages to mildly injure him/her2 before he/she2 makes their escape.");
+		tribute2->injury++;
+		action = nameReplacer(action, 1, *tribute1);
+		action = nameReplacer(action, 2, *tribute2);
+		tribute1->usedToday = true;
+		tribute2->usedToday = true;
+		usable.remove(true, tribute1->ID);
+		usable.remove(true, tribute2->ID);
+		tribute1 = NULL;
+		tribute2 = NULL;
+		delete tribute1;
+		delete tribute2;
+		cout << action << "\n";
+		return 2;
+	}
+	else
+	{
+		action.append(" but he/she1 decides against trying to ambush Tribute2 and watches him/her2 for the day to learn their daily routine and find a weakness to exploit later");
+		action = nameReplacer(action, 1, *tribute1);
+		action = nameReplacer(action, 2, *tribute2);
+		tribute1->usedToday = true;
+		usable.remove(true, tribute1->ID);
+		tribute1 = NULL;
+		tribute2 = NULL;
+		delete tribute1;
+		delete tribute2;
+		cout << action << "\n";
+		return 1;
+	}
 }
 
 int dayEventTwenty()
 {
-	string action = "Tribute1 tries to move stealthily for fear of someone hearing him/her1";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	string action = "";
+	if (tribute1->luck > 6)
+	{
+		action = "Tribute1 receives an explosive from an unknown sponsor.";
+		tribute1->inventory.grenade++;
+	}
+	else if (tribute1->luck == 1)
+	{
+		action = "Tribute1 receives an explosive from an unknown sponsor but it detonates upon landing killing Tribute1.";
+		tribute1->alive = false;
+	}
+	else
+		action = "Tribute1 finds a secluded space to stare into the sky waiting for a care package from a sponsor that never comes.";
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int dayEventTwentyOne()
@@ -736,7 +806,7 @@ int dayEventThirtyNine()
 
 int dayEventForty()
 {
-	string action = "Tribute1 receives an explosive from an unknown sponsor";
+	string action = "";
 	return 0;
 }
 
