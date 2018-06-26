@@ -92,10 +92,6 @@ int main() {
 			return 0;
 			break;
 		case 7:
-			system("CLS");
-			if (true && true)
-				cout << "Looping";
-			//cout << roster[getTribute(roster.size())].name << endl;
 			break;
 		default:
 			system("CLS");

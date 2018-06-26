@@ -828,8 +828,77 @@ int dayEventTwentyFour()
 
 int dayEventTwentyFive()
 {
+	if (usableTributes < 3)
+		return 0;
+	Tribute *tribute1 = NULL;
+	Tribute *tribute2 = NULL;
+	Tribute *tribute3 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	tribute2 = tribute2->getTribute(roster.size());
+	while (tribute2->ID == tribute1->ID)
+	{
+		tribute2 = NULL;
+		delete tribute2;
+		tribute2 = tribute2->getTribute(roster.size());
+	}
+	tribute3 = tribute3->getTribute(roster.size());
+	while (tribute3->ID == tribute1->ID  || tribute3->ID == tribute2->ID)
+	{
+		tribute3 = NULL;
+		delete tribute3;
+		tribute3 = tribute3->getTribute(roster.size());
+	}
 	string action = "After some discussion, Tribute1, Tribute2, and Tribute3 work together for the day to find edible food and clean water";
-	return 0;
+	int temp = tribute1->perception + tribute2->perception + tribute3->perception;
+	if (temp <= 15)
+		action.append(" but none are able to find anything.");
+	else if (temp > 15 && temp <= 20) 
+	{
+		action.append(" and split what they find.");
+		tribute1->inventory.food++;
+		tribute1->inventory.canteen_of_water++;
+		tribute2->inventory.food++;
+		tribute2->inventory.canteen_of_water++;
+		tribute3->inventory.food++;
+		tribute3->inventory.canteen_of_water++;
+	}
+	else if (temp > 20 && temp <= 25)
+	{
+		action.append(" and split what they find.");
+		tribute1->inventory.food = tribute1->inventory.food + 2;
+		tribute1->inventory.canteen_of_water = tribute1->inventory.canteen_of_water + 2;
+		tribute2->inventory.food = tribute2->inventory.food + 2;
+		tribute2->inventory.canteen_of_water = tribute2->inventory.canteen_of_water + 2;
+		tribute3->inventory.food = tribute3->inventory.food + 2;
+		tribute3->inventory.canteen_of_water = tribute3->inventory.canteen_of_water + 2;
+	}
+	else if (temp > 25)
+	{
+		action.append(" and split what they find.");
+		tribute1->inventory.food = tribute1->inventory.food + 3;
+		tribute1->inventory.canteen_of_water = tribute1->inventory.canteen_of_water + 3;
+		tribute2->inventory.food = tribute2->inventory.food + 3;
+		tribute2->inventory.canteen_of_water = tribute2->inventory.canteen_of_water + 3;
+		tribute3->inventory.food = tribute3->inventory.food + 3;
+		tribute3->inventory.canteen_of_water = tribute3->inventory.canteen_of_water + 3;
+	}
+	action = nameReplacer(action, 1, *tribute1);
+	action = nameReplacer(action, 2, *tribute2);
+	action = nameReplacer(action, 3, *tribute3);
+	tribute1->usedToday = true;
+	tribute2->usedToday = true;
+	tribute3->usedToday = true;
+	usable.remove(true, tribute1->ID);
+	usable.remove(true, tribute2->ID);
+	usable.remove(true, tribute3->ID);
+	tribute1 = NULL;
+	tribute2 = NULL;
+	tribute3 = NULL;
+	delete tribute1;
+	delete tribute2;
+	delete tribute3;
+	cout << action << "\n";
+	return 3;
 }
 
 int dayEventTwentySix()
