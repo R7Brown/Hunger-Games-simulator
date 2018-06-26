@@ -676,6 +676,7 @@ int dayEventTwenty()
 	{
 		action = "Tribute1 receives an explosive from an unknown sponsor but it detonates upon landing killing Tribute1.";
 		tribute1->alive = false;
+		livingTributes--;
 	}
 	else
 		action = "Tribute1 finds a secluded space to stare into the sky waiting for a care package from a sponsor that never comes.";
@@ -738,11 +739,13 @@ int dayEventTwentyOne()
 		{
 			action.append("\tArming himself/herself1 with materials they were using to build a shelter, Tribute1 lands a lucky blow on Tribute2 knocking him/her2 to the ground\n\tTribute1 proceeds to beat Tribute2's head in until it's just a mushy pile on the ground.");
 			tribute2->alive = false;
+			livingTributes--;
 		}
 		else if (tribute2->strength > tribute1->strength)
 		{
 			action.append("\tArming himself\herself2 with materials they were using to build a shelter, Tribute2 manages to knock down Tribute1 and jumps and stomps on Tribute1's ribcage, breaking their ribs\n\tWith Tribute2 standing on his/her1 chest, Tribute1 chokes on their blood and dies.");
 			tribute1->alive = false;
+			livingTributes--;
 		}
 		else
 		{
