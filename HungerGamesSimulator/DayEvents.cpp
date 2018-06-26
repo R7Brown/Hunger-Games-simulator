@@ -6,7 +6,7 @@ string pronounReplacer(string action, Tribute tribute, int count) {
 	string himHer;
 	string hisHer;
 	string heShe;
-	string himselfHerself; 
+	string himselfHerself;
 	string rHimHer = "him/her" + to_string(count);
 	string rHisHer = "his/her" + to_string(count);
 	string rHeShe = "he/she" + to_string(count);
@@ -42,7 +42,7 @@ string nameReplacer(string action, int i, Tribute tribute)
 {
 	string toReplace = "Tribute";
 	toReplace.append(to_string(i));
-	action = pronounReplacer(action, tribute,i);
+	action = pronounReplacer(action, tribute, i);
 	while (action.find(toReplace) != string::npos)
 		action.replace(action.find(toReplace), 8, tribute.name);
 	return action;
@@ -65,10 +65,10 @@ int dayEventExample()
 	//Action is the string that determines the uniqueness of each dayEvent. You can make it whatever you want really
 	string action = "";
 	/************************************************
-		Checks go here based on what the dayEvent is
-		Checks can check anything from stats to inventory to injuries
-		Take care to edit stats, inventory, injuries etc. based on what the dayEvent is
-		Otherwise you're gonna get tributes with inventories and injuries and kills that don't match the output
+	Checks go here based on what the dayEvent is
+	Checks can check anything from stats to inventory to injuries
+	Take care to edit stats, inventory, injuries etc. based on what the dayEvent is
+	Otherwise you're gonna get tributes with inventories and injuries and kills that don't match the output
 	*************************************************/
 	//Sending action to the nameReplacer function also sends it to the pronounReplacer function
 	//This is purely for output, since tributes and their stuff will still be edited by the dayEvent
@@ -85,8 +85,8 @@ int dayEventExample()
 	return number_of_tributes;
 }
 
-int dayEventOne() 
-{ 
+int dayEventOne()
+{
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
@@ -107,13 +107,14 @@ int dayEventOne()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
 	return 1;
 }
 
-int dayEventTwo() 
+int dayEventTwo()
 {
 	if (usableTributes < 1)
 		return 0;
@@ -130,13 +131,14 @@ int dayEventTwo()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
 	return 1;
 }
 
-int dayEventThree() 
+int dayEventThree()
 {
 	if (usableTributes < 1)
 		return 0;
@@ -146,6 +148,7 @@ int dayEventThree()
 	tribute1->perception++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -157,9 +160,15 @@ int dayEventFour()
 	if (usableTributes < 2)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size()); 
+	tribute1 = tribute1->getTribute(roster.size());
 	Tribute *tribute2 = NULL;
 	tribute2 = tribute2->getTribute(roster.size());
+	while (tribute2->ID == tribute1->ID)
+	{
+		tribute2 = NULL;
+		delete tribute2;
+		tribute2 = tribute2->getTribute(roster.size());
+	}
 	string action = "Tribute1 attempts to divert Tribute2's attention and run away,";
 	if (tribute1->charisma > tribute2->perception)
 		action.append(" and succeeds to escape.");
@@ -176,7 +185,9 @@ int dayEventFour()
 	action = nameReplacer(action, 1, *tribute1);
 	action = nameReplacer(action, 2, *tribute2);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute2->usedToday = true;
+	usable.remove(true, tribute2->ID);
 	tribute1 = NULL;
 	tribute2 = NULL;
 	delete tribute1;
@@ -202,6 +213,7 @@ int dayEventFive()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -226,6 +238,7 @@ int dayEventSix()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -242,6 +255,7 @@ int dayEventSeven()
 	tribute1->inventory.food++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -266,6 +280,7 @@ int dayEventEight()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -281,6 +296,7 @@ int dayEventNine()
 	string action = "Tribute1 tries to sleep through the day to hunt at night.\n";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action;
@@ -301,6 +317,7 @@ int dayEventTen()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -338,6 +355,7 @@ int dayEventEleven()
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -353,6 +371,7 @@ int dayEventTwelve()
 	string action = "Tribute1 is pricked by thorns while picking berries. No serious harm is done.";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -381,6 +400,7 @@ int dayEventThirteen()
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -408,6 +428,7 @@ int dayEventFourteen()
 		action.append(" but cannot find anything but some sticks to burn for a small fire.");
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -430,6 +451,7 @@ int dayEventFifteen()
 		action.append("Tribute1 attempted to make a slingshot but was unable to make one that didn't break upon first use.");
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -446,13 +468,14 @@ int dayEventSixteen()
 	tribute1->perception++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
 	return 1;
 }
 
-int dayEventSeventeen()
+int dayEventSdayEventeen()
 {
 	if (usableTributes < 1)
 		return 0;
@@ -468,6 +491,7 @@ int dayEventSeventeen()
 		action.append(" and decides to follow them for the day.");
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -488,6 +512,12 @@ int dayEventEighteen()
 			action.append(" and begins following Tribute2's trail.");
 			Tribute *tribute2 = NULL;
 			tribute2 = tribute2->getTribute(roster.size());
+			while (tribute2->ID == tribute1->ID)
+			{
+				tribute2 = NULL;
+				delete tribute2;
+				tribute2 = tribute2->getTribute(roster.size());
+			}
 			if (tribute1->endurance > tribute2->endurance)
 			{
 				action.append(" Tribute1 catches up to Tribute2 and the two begin to scuffle.\n");
@@ -500,7 +530,9 @@ int dayEventEighteen()
 					action = nameReplacer(action, 1, *tribute1);
 					action = nameReplacer(action, 2, *tribute2);
 					tribute1->usedToday = true;
+					usable.remove(true, tribute1->ID);
 					tribute2->usedToday = true;
+					usable.remove(true, tribute2->ID);
 					tribute1 = NULL;
 					tribute2 = NULL;
 					delete tribute1;
@@ -516,7 +548,9 @@ int dayEventEighteen()
 					action = nameReplacer(action, 1, *tribute1);
 					action = nameReplacer(action, 2, *tribute2);
 					tribute1->usedToday = true;
+					usable.remove(true, tribute1->ID);
 					tribute2->usedToday = true;
+					usable.remove(true, tribute2->ID);
 					tribute1 = NULL;
 					tribute2 = NULL;
 					delete tribute1;
@@ -530,7 +564,9 @@ int dayEventEighteen()
 					action = nameReplacer(action, 1, *tribute1);
 					action = nameReplacer(action, 2, *tribute2);
 					tribute1->usedToday = true;
+					usable.remove(true, tribute1->ID);
 					tribute2->usedToday = true;
+					usable.remove(true, tribute2->ID);
 					tribute1 = NULL;
 					tribute2 = NULL;
 					delete tribute1;
@@ -545,29 +581,27 @@ int dayEventEighteen()
 				action = nameReplacer(action, 1, *tribute1);
 				action = nameReplacer(action, 2, *tribute2);
 				tribute1->usedToday = true;
-				tribute2->usedToday = true;
+				usable.remove(true, tribute1->ID);
 				tribute1 = NULL;
 				tribute2 = NULL;
 				delete tribute1;
 				delete tribute2;
 				cout << action << "\n";
-				return 2;
+				return 1;
 			}
 		}
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
 	return 1;
 }
 
-int dayEventNineteen() 
+int dayEventNineteen()
 {
-	if (usableTributes < 2)
-		return 0;
-	
 	string action = "Tribute1 stalks Tribute2";
 	return 0;
 }
@@ -693,6 +727,7 @@ int dayEventThirtyNine()
 	string action = "Tribute1 picks flowers";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
+	usable.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -705,11 +740,11 @@ int dayEventForty()
 	return 0;
 }
 
-vector <func_ptr> dayEvents = {	dayEventOne,		dayEventTwo,			dayEventThree,			dayEventFour,		dayEventFive,
-								dayEventSix,		dayEventSeven,			dayEventEight,			dayEventNine,		dayEventTen,
-								dayEventEleven,		dayEventTwelve,			dayEventThirteen,		dayEventFourteen,	dayEventFifteen,
-								dayEventSixteen,	dayEventSeventeen,		dayEventEighteen,		dayEventNineteen,	dayEventTwenty,
-								dayEventTwentyOne,	dayEventTwentyTwo,		dayEventTwentyThree,	dayEventTwentyFour,	dayEventTwentyFive,
-								dayEventTwentySix,	dayEventTwentySeven,	dayEventTwentyEight,	dayEventTwentyNine,	dayEventThirty,
-								dayEventThirtyOne,	dayEventThirtyTwo,		dayEventThirtyThree,	dayEventThirtyFour,	dayEventThirtyFive,
-								dayEventThirtySix,	dayEventThirtySeven,	dayEventThirtyEight,	dayEventThirtyNine,	dayEventForty };
+vector <func_ptr> dayEvents = { dayEventOne,		dayEventTwo,			dayEventThree,			dayEventFour,		dayEventFive,
+dayEventSix,		dayEventSeven,			dayEventEight,			dayEventNine,		dayEventTen,
+dayEventEleven,		dayEventTwelve,			dayEventThirteen,		dayEventFourteen,	dayEventFifteen,
+dayEventSixteen,	dayEventSdayEventeen,	dayEventEighteen,		dayEventNineteen,	dayEventTwenty,
+dayEventTwentyOne,	dayEventTwentyTwo,		dayEventTwentyThree,	dayEventTwentyFour,	dayEventTwentyFive,
+dayEventTwentySix,	dayEventTwentySeven,	dayEventTwentyEight,	dayEventTwentyNine,	dayEventThirty,
+dayEventThirtyOne,	dayEventThirtyTwo,		dayEventThirtyThree,	dayEventThirtyFour,	dayEventThirtyFive,
+dayEventThirtySix,	dayEventThirtySeven,	dayEventThirtyEight,	dayEventThirtyNine,	dayEventForty };
