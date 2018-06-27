@@ -34,7 +34,6 @@ void simulation()
 
 	while (livingTributes > 1)
 	{
-		dayNum++;
 		cout << "Day: " << dayNum << "\n";
 		resetUsable();
 		while (usableTributes > 0)
@@ -48,6 +47,7 @@ void simulation()
 		{
 
 		}
+		dayNum++;
 	}
 }
 

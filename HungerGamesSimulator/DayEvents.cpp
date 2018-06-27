@@ -743,7 +743,7 @@ int dayEventTwentyOne()
 		}
 		else if (tribute2->strength > tribute1->strength)
 		{
-			action.append("\tArming himself\herself2 with materials they were using to build a shelter, Tribute2 manages to knock down Tribute1 and jumps and stomps on Tribute1's ribcage, breaking their ribs\n\tWith Tribute2 standing on his/her1 chest, Tribute1 chokes on their blood and dies.");
+			action.append("\tArming himself/herself2 with materials they were using to build a shelter, Tribute2 manages to knock down Tribute1 and jumps and stomps on Tribute1's ribcage, breaking their ribs\n\tWith Tribute2 standing on his/her1 chest, Tribute1 chokes on their blood and dies.");
 			tribute1->alive = false;
 			livingTributes--;
 		}
