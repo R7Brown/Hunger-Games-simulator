@@ -107,7 +107,7 @@ int dayEventOne()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -131,7 +131,7 @@ int dayEventTwo()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -148,7 +148,7 @@ int dayEventThree()
 	tribute1->perception++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -185,9 +185,9 @@ int dayEventFour()
 	action = nameReplacer(action, 1, *tribute1);
 	action = nameReplacer(action, 2, *tribute2);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute2->usedToday = true;
-	usable.remove(true, tribute2->ID);
+	ListofUsableTributes.remove(true, tribute2->ID);
 	tribute1 = NULL;
 	tribute2 = NULL;
 	delete tribute1;
@@ -213,7 +213,7 @@ int dayEventFive()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -238,7 +238,7 @@ int dayEventSix()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -255,7 +255,7 @@ int dayEventSeven()
 	tribute1->inventory.food++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -280,7 +280,7 @@ int dayEventEight()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -296,7 +296,7 @@ int dayEventNine()
 	string action = "Tribute1 tries to sleep through the day to hunt at night.\n";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action;
@@ -317,7 +317,7 @@ int dayEventTen()
 
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -352,7 +352,7 @@ int dayEventEleven()
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -368,7 +368,7 @@ int dayEventTwelve()
 	string action = "Tribute1 is pricked by thorns while picking berries. No serious harm is done.";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -397,7 +397,7 @@ int dayEventThirteen()
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -425,7 +425,7 @@ int dayEventFourteen()
 		action.append(" but cannot find anything but some sticks to burn for a small fire.");
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -448,7 +448,7 @@ int dayEventFifteen()
 		action.append("Tribute1 attempted to make a slingshot but was unable to make one that didn't break upon first use.");
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -465,7 +465,7 @@ int dayEventSixteen()
 	tribute1->perception++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -488,7 +488,7 @@ int dayEventSdayEventeen()
 		action.append(" and decides to follow them for the day.");
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -527,9 +527,9 @@ int dayEventEighteen()
 					action = nameReplacer(action, 1, *tribute1);
 					action = nameReplacer(action, 2, *tribute2);
 					tribute1->usedToday = true;
-					usable.remove(true, tribute1->ID);
+					ListofUsableTributes.remove(true, tribute1->ID);
 					tribute2->usedToday = true;
-					usable.remove(true, tribute2->ID);
+					ListofUsableTributes.remove(true, tribute2->ID);
 					tribute1 = NULL;
 					tribute2 = NULL;
 					delete tribute1;
@@ -545,9 +545,9 @@ int dayEventEighteen()
 					action = nameReplacer(action, 1, *tribute1);
 					action = nameReplacer(action, 2, *tribute2);
 					tribute1->usedToday = true;
-					usable.remove(true, tribute1->ID);
+					ListofUsableTributes.remove(true, tribute1->ID);
 					tribute2->usedToday = true;
-					usable.remove(true, tribute2->ID);
+					ListofUsableTributes.remove(true, tribute2->ID);
 					tribute1 = NULL;
 					tribute2 = NULL;
 					delete tribute1;
@@ -561,9 +561,9 @@ int dayEventEighteen()
 					action = nameReplacer(action, 1, *tribute1);
 					action = nameReplacer(action, 2, *tribute2);
 					tribute1->usedToday = true;
-					usable.remove(true, tribute1->ID);
+					ListofUsableTributes.remove(true, tribute1->ID);
 					tribute2->usedToday = true;
-					usable.remove(true, tribute2->ID);
+					ListofUsableTributes.remove(true, tribute2->ID);
 					tribute1 = NULL;
 					tribute2 = NULL;
 					delete tribute1;
@@ -578,7 +578,7 @@ int dayEventEighteen()
 				action = nameReplacer(action, 1, *tribute1);
 				action = nameReplacer(action, 2, *tribute2);
 				tribute1->usedToday = true;
-				usable.remove(true, tribute1->ID);
+				ListofUsableTributes.remove(true, tribute1->ID);
 				tribute1 = NULL;
 				tribute2 = NULL;
 				delete tribute1;
@@ -590,7 +590,7 @@ int dayEventEighteen()
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -619,7 +619,7 @@ int dayEventNineteen()
 		action = nameReplacer(action, 1, *tribute1);
 		action = nameReplacer(action, 2, *tribute2);
 		tribute1->usedToday = true;
-		usable.remove(true, tribute1->ID);
+		ListofUsableTributes.remove(true, tribute1->ID);
 		tribute1 = NULL;
 		tribute2 = NULL;
 		delete tribute1;
@@ -635,8 +635,8 @@ int dayEventNineteen()
 		action = nameReplacer(action, 2, *tribute2);
 		tribute1->usedToday = true;
 		tribute2->usedToday = true;
-		usable.remove(true, tribute1->ID);
-		usable.remove(true, tribute2->ID);
+		ListofUsableTributes.remove(true, tribute1->ID);
+		ListofUsableTributes.remove(true, tribute2->ID);
 		tribute1 = NULL;
 		tribute2 = NULL;
 		delete tribute1;
@@ -650,7 +650,7 @@ int dayEventNineteen()
 		action = nameReplacer(action, 1, *tribute1);
 		action = nameReplacer(action, 2, *tribute2);
 		tribute1->usedToday = true;
-		usable.remove(true, tribute1->ID);
+		ListofUsableTributes.remove(true, tribute1->ID);
 		tribute1 = NULL;
 		tribute2 = NULL;
 		delete tribute1;
@@ -682,7 +682,7 @@ int dayEventTwenty()
 		action = "Tribute1 finds a secluded space to stare into the sky waiting for a care package from a sponsor that never comes.";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -758,8 +758,8 @@ int dayEventTwentyOne()
 	action = nameReplacer(action, 2, *tribute2);
 	tribute1->usedToday = true;
 	tribute2->usedToday = true;
-	usable.remove(true, tribute1->ID);
-	usable.remove(true, tribute2->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute2->ID);
 	tribute1 = NULL;
 	tribute2 = NULL;
 	delete tribute1;
@@ -777,7 +777,7 @@ int dayEventTwentyTwo()
 	string action = "Tribute1 spends his/her1 day trying to find a way out of the arena.";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -804,7 +804,7 @@ int dayEventTwentyThree()
 		action.append(" and spends the entire day thinking about it, doing nothing productive to his/her1 survival.");
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -822,7 +822,7 @@ int dayEventTwentyFour()
 	tribute1->usedToday = true;
 	if (tribute1->luck < 4)
 		tribute1->injury++;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -891,9 +891,9 @@ int dayEventTwentyFive()
 	tribute1->usedToday = true;
 	tribute2->usedToday = true;
 	tribute3->usedToday = true;
-	usable.remove(true, tribute1->ID);
-	usable.remove(true, tribute2->ID);
-	usable.remove(true, tribute3->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute2->ID);
+	ListofUsableTributes.remove(true, tribute3->ID);
 	tribute1 = NULL;
 	tribute2 = NULL;
 	tribute3 = NULL;
@@ -988,13 +988,13 @@ int dayEventTwentySix()
 			tribute5->usedToday = true;
 			tribute6->usedToday = true;
 			tribute7->usedToday = true;
-			usable.remove(true, tribute1->ID);
-			usable.remove(true, tribute2->ID);
-			usable.remove(true, tribute3->ID);
-			usable.remove(true, tribute4->ID);
-			usable.remove(true, tribute5->ID);
-			usable.remove(true, tribute6->ID);
-			usable.remove(true, tribute7->ID);
+			ListofUsableTributes.remove(true, tribute1->ID);
+			ListofUsableTributes.remove(true, tribute2->ID);
+			ListofUsableTributes.remove(true, tribute3->ID);
+			ListofUsableTributes.remove(true, tribute4->ID);
+			ListofUsableTributes.remove(true, tribute5->ID);
+			ListofUsableTributes.remove(true, tribute6->ID);
+			ListofUsableTributes.remove(true, tribute7->ID);
 			tribute1 = NULL;
 			tribute2 = NULL;
 			tribute3 = NULL;
@@ -1031,13 +1031,13 @@ int dayEventTwentySix()
 			tribute5->usedToday = true;
 			tribute6->usedToday = true;
 			tribute7->usedToday = true;
-			usable.remove(true, tribute1->ID);
-			usable.remove(true, tribute2->ID);
-			usable.remove(true, tribute3->ID);
-			usable.remove(true, tribute4->ID);
-			usable.remove(true, tribute5->ID);
-			usable.remove(true, tribute6->ID);
-			usable.remove(true, tribute7->ID);
+			ListofUsableTributes.remove(true, tribute1->ID);
+			ListofUsableTributes.remove(true, tribute2->ID);
+			ListofUsableTributes.remove(true, tribute3->ID);
+			ListofUsableTributes.remove(true, tribute4->ID);
+			ListofUsableTributes.remove(true, tribute5->ID);
+			ListofUsableTributes.remove(true, tribute6->ID);
+			ListofUsableTributes.remove(true, tribute7->ID);
 			tribute1 = NULL;
 			tribute2 = NULL;
 			tribute3 = NULL;
@@ -1070,12 +1070,12 @@ int dayEventTwentySix()
 	tribute4->usedToday = true;
 	tribute5->usedToday = true;
 	tribute6->usedToday = true;
-	usable.remove(true, tribute1->ID);
-	usable.remove(true, tribute2->ID);
-	usable.remove(true, tribute3->ID);
-	usable.remove(true, tribute4->ID);
-	usable.remove(true, tribute5->ID);
-	usable.remove(true, tribute6->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute2->ID);
+	ListofUsableTributes.remove(true, tribute3->ID);
+	ListofUsableTributes.remove(true, tribute4->ID);
+	ListofUsableTributes.remove(true, tribute5->ID);
+	ListofUsableTributes.remove(true, tribute6->ID);
 	tribute1 = NULL;
 	tribute2 = NULL;
 	tribute3 = NULL;
@@ -1104,7 +1104,7 @@ int dayEventTwentySeven()
 		action.append("Tribute1 camoflagues himself/herself1 in the bushes and conceals himself/herself1 from other tributes for the day.");
 		tribute1->usedToday = true;
 		action = nameReplacer(action, 1, *tribute1);
-		usable.remove(true, tribute1->ID);
+		ListofUsableTributes.remove(true, tribute1->ID);
 		tribute1 = NULL;
 		delete tribute1;
 		cout << action << "\n";
@@ -1129,7 +1129,7 @@ int dayEventTwentyEight()
 	tribute1->inventory.camping_equipment = tribute1->inventory.camping_equipment + 3;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -1157,7 +1157,7 @@ int dayEventTwentyNine()
 		action.append("Tribute1 finds a secluded space to stare into the sky waiting for a care package from a sponsor that never comes.");
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -1180,7 +1180,7 @@ int dayEventThirty()
 		action.append("Tribute1 finds a secluded space to stare into the sky waiting for a care package from a sponsor that never comes.");
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";
@@ -1244,7 +1244,7 @@ int dayEventThirtyNine()
 	string action = "Tribute1 picks flowers";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	tribute1 = NULL;
 	delete tribute1;
 	cout << action << "\n";

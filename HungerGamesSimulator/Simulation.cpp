@@ -109,7 +109,7 @@ void resetUsable()
 		if (roster[i].alive)
 		{
 			roster[i].usedToday = false;
-			usable.insert(i);
+			ListofUsableTributes.insert(i);
 			usableTributes++;
 		}
 	}
