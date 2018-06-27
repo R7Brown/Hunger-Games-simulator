@@ -128,14 +128,22 @@ void buildRoster() {
 		++numberOfLines;
 	roster.resize(numberOfLines);
 
-	//This for loop is really only necessary if the file is encoded in UTF-8
-	//Doing so creates 3, what I believe are garbage characters, at the beginning of the file. So this is my fix for that for now until I can determine
-	//how to know what a files' encoding is and dynamically run this loop or not
+	//checks the first 3 characters in a file for a unicode BOS
+	//Uses regex to check if the first 3 characters are english letters or not
+	string temp;
+	regex reg("[A-Za-z]*");
 	for (int j = 0; j < 3; j++)
 	{
 		char c;
 		ip.get(c);
+		temp += c;
 	}
+	if (regex_match(temp, reg))
+	{
+		ip.clear();
+		ip.seekg(0, ios::beg);
+	}
+
 	//This loop runs until the end of the file assigning values in order of NAME,GENDER,DISTRICT#
 	//If it's not in that order this will still assign but it'll very likely cause problems later on in simulation.
 	int i = 0;
