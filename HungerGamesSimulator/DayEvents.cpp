@@ -79,7 +79,7 @@ int dayEventExample()
 	//These three lines are in charge of deleting the pointer to prdayEvent memory leaks
 	//As well as removing the trubute from the list of usable tributes
 	tribute1 = NULL;
-	usable.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute1->ID);
 	delete tribute1;
 	//Print what happened to the screen
 	cout << action << "\n";
