@@ -38,7 +38,7 @@
 #include<vector>
 #include<time.h>
 #include<stdlib.h>
-#include<list>
+#include<regex>
 #include"LinkedList.h"
 using namespace std;
 
