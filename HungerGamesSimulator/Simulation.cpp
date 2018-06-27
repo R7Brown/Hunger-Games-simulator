@@ -18,6 +18,7 @@ int livingTributes;
 int usableTributes;
 
 void resetUsable();
+void endOfDayChecks();
 
 void simulation() 
 {
@@ -40,10 +41,60 @@ void simulation()
 		{
 			usableTributes = usableTributes - (dayEvents[rand() % dayEvents.size()]());
 		}
+		//Note to self: Mention to brady about dumping internal values to file if running in real time
+		endOfDayChecks();
 
 		while (usableTributes > 0)
 		{
 
+		}
+	}
+}
+
+//This function determines at the end of the day if the tributes have food, water, shelter, and medkits
+//If they don't, they have a 15% chance of receiving an injury for it
+void endOfDayChecks()
+{
+	for (int i = 0; i < roster.size(); i++)
+	{
+		if (roster[i].alive)
+		{
+			if (roster[i].inventory.camping_equipment > 0)
+				roster[i].inventory.camping_equipment--;
+			else
+			{
+				int temp = rand() % 100 + 1;
+				if (temp <= 5)
+					roster[i].injury++;
+			}
+			if (roster[i].inventory.canteen_of_water > 0)
+				roster[i].inventory.canteen_of_water--;
+			else
+			{
+				int temp = rand() % 100 + 1;
+				if (temp <= 5)
+					roster[i].injury++;
+			}
+			if (roster[i].inventory.food > 0)
+				roster[i].inventory.food--;
+			else
+			{
+				int temp = rand() % 100 + 1;
+				if (temp <= 5)
+					roster[i].injury++;
+			}
+			if (roster[i].inventory.first_aid_kit > 0)
+			{
+				roster[i].inventory.first_aid_kit--;
+				roster[i].injury--;
+			}
+
+			if (roster[i].injury >= 5)
+			{
+				roster[i].alive = false;
+				livingTributes--;
+				cout << roster[i].name << " succumbs to their wounds and dies.\n";
+			}
 		}
 	}
 }
@@ -58,7 +109,7 @@ void resetUsable()
 		if (roster[i].alive)
 		{
 			roster[i].usedToday = false;
-			usable.insert(i);
+			ListofUsableTributes.insert(i);
 			usableTributes++;
 		}
 	}
