@@ -1191,32 +1191,221 @@ int dayEventThirty()
 
 int dayEventThirtyOne()
 {
-	string action = "Tribute1 receives medical supplies from an unknown sponsor";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	string action = "";
+	if (tribute1->luck > 4)
+	{
+		action.append("Tribute1 receives a medical supplies from an unknown sponsor.");
+		tribute1->inventory.first_aid_kit++;
+	}
+	else
+		action.append("Tribute1 finds a secluded space to stare into the sky waiting for a care package from a sponsor that never comes.");
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	ListofUsableTributes.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int dayEventThirtyTwo()
 {
-	string action = "Tribute1 receives fresh food from and unknown sponsor";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	string action = "";
+	if (tribute1->luck > 4)
+	{
+		action.append("Tribute1 receives a fresh food from an unknown sponsor.");
+		tribute1->inventory.food++;
+	}
+	else if (tribute1->luck > 9)
+	{
+		action.append("Tribute1 receives a steak dinner without any silverware from an unknown sponsor.");
+		tribute1->inventory.food = tribute1->inventory.food + 2;
+	}
+	else
+		action.append("Tribute1 finds a secluded space to stare into the sky waiting for a care package from a sponsor that never comes.");
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	ListofUsableTributes.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int dayEventThirtyThree()
 {
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
 	string action = "Tribute1 searches for a water source";
-	return 0;
+	if (tribute1->luck > 5)
+		action.append(" and finds a fresh water creek to drink from.");
+	else
+		action.append(" but doesn't find any fresh water to drink from.");
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	ListofUsableTributes.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int dayEventThirtyFour()
 {
-	string action = "Tribute1 defeats Tribute2 in a fight";
-	return 0;
+	if (usableTributes < 2)
+		return 0;
+	Tribute *tribute1 = NULL;
+	Tribute *tribute2 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	tribute2 = tribute2->getTribute(roster.size());
+	while (tribute2->ID == tribute1->ID)
+	{
+		tribute2 = NULL;
+		delete tribute2;
+		tribute2 = tribute2->getTribute(roster.size());
+	}
+	string action = "Tribute1 and Tribute2 get into a fistfight";
+	if (tribute1->strength > tribute2->strength)
+	{
+		if (tribute1->endurance >= tribute2->endurance)
+		{
+			action.append(" and Tribute1 lands a punch to Tribute2's jaw, knocking him/her2 unconcious.\n\tTribute1 takes the opportunity to execute Tribute2.");
+			tribute2->alive = false;
+			livingTributes--;
+		}
+		else if (tribute1->endurance < tribute2->endurance)
+		{
+			action.append(" and while Tribute1 swings as hard as he/she1 can, Tribute2 endures the hits until Tribute1 is too exhausted to fight anymore.\n\tTribute2 uses this opportunity to escape with only some minor injuries.");
+			tribute2->injury++;
+		}
+	}
+	else if (tribute1->strength < tribute2->strength)
+	{
+		if (tribute1->endurance <= tribute2->endurance)
+		{
+			action.append(" and Tribute2 lands a punch to Tribute1's jaw, knocking him/her1 unconcious.\n\tTribute2 takes the opportunity to execute Tribute1.");
+			tribute1->alive = false;
+			livingTributes--;
+		}
+		else if (tribute1->endurance > tribute2->endurance)
+		{
+			action.append(" and while Tribute2 swings as hard as he/she2 can, Tribute1 endures the hits until Tribute2 is too exhausted to fight anymore.\n\tTribute1 uses this opportunity to escape with only some minor injuries.");
+			tribute1->injury++;
+		}
+	} 
+	else
+	{
+		if (tribute1->endurance == tribute2->endurance)
+		{
+			action.append(" and both tributes are evenly matched against one another, giving each other some minor injuries.\n\tBoth tributes walk away from the experience alive");
+			tribute1->injury++;
+			tribute2->injury++;
+		}
+		else if (tribute1->endurance > tribute2->endurance)
+		{
+			action.append(" and while Tribute2 swings as hard as he/she2 can, Tribute1 endures the hits until Tribute2 is too exhausted to fight anymore.\n\tTribute1 uses this opportunity to escape with only some minor injuries.");
+			tribute1->injury++;
+		}
+		else
+		{
+			action.append(" and while Tribute1 swings as hard as he/she1 can, Tribute2 endures the hits until Tribute1 is too exhausted to fight anymore.\n\tTribute2 uses this opportunity to escape with only some minor injuries.");
+			tribute2->injury++;
+		}
+	}
+	action = nameReplacer(action, 1, *tribute1);
+	action = nameReplacer(action, 2, *tribute2);
+	tribute1->usedToday = true;
+	tribute2->usedToday = true;
+	ListofUsableTributes.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute2->ID);
+	tribute1 = NULL;
+	tribute2 = NULL;
+	delete tribute1;
+	delete tribute2;
+	cout << action << "\n";
+	return 2;
 }
 
 int dayEventThirtyFive()
 {
-	string action = "Tribute1, Tribute2, Tribute3, and Tribute4 raid Tribute5's camp while he/she5 is away";
-	return 0;
+	if (usableTributes < 5)
+		return 0;
+	Tribute *tribute1 = NULL;
+	Tribute *tribute2 = NULL;
+	Tribute *tribute3 = NULL;
+	Tribute *tribute4 = NULL;
+	Tribute *tribute5 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	tribute2 = tribute2->getTribute(roster.size());
+	while (tribute2->ID == tribute1->ID)
+	{
+		tribute2 = NULL;
+		delete tribute2;
+		tribute2 = tribute2->getTribute(roster.size());
+	}
+	tribute3 = tribute3->getTribute(roster.size());
+	while (tribute3->ID == tribute1->ID || tribute3->ID == tribute2->ID)
+	{
+		tribute3 = NULL;
+		delete tribute3;
+		tribute3 = tribute3->getTribute(roster.size());
+	}
+	tribute4 = tribute4->getTribute(roster.size());
+	while (tribute4->ID == tribute1->ID || tribute4->ID == tribute2->ID || tribute4->ID == tribute3->ID)
+	{
+		tribute4 = NULL;
+		delete tribute4;
+		tribute4 = tribute4->getTribute(roster.size());
+	}
+	tribute5 = tribute5->getTribute(roster.size());
+	while (tribute5->ID == tribute1->ID || tribute5->ID == tribute2->ID || tribute5->ID == tribute3->ID || tribute5->ID == tribute4->ID)
+	{
+		tribute5 = NULL;
+		delete tribute5;
+		tribute5 = tribute5->getTribute(roster.size());
+	}
+	string action = "Tribute1, Tribute2, Tribute3, and Tribute4 raid Tribute5's camp to destroy his/her5 survival supplies while he/she5 is away.";
+	if (tribute5->inventory.food > 0)
+		tribute5->inventory.food--;
+	else if (tribute5->inventory.canteen_of_water > 0)
+		tribute5->inventory.canteen_of_water--;
+	else if (tribute5->inventory.camping_equipment > 0)
+		tribute5->inventory.camping_equipment--;
+	action = nameReplacer(action, 1, *tribute1);
+	action = nameReplacer(action, 2, *tribute2);
+	action = nameReplacer(action, 3, *tribute3);
+	action = nameReplacer(action, 4, *tribute4);
+	action = nameReplacer(action, 5, *tribute5);
+	tribute1->usedToday = true;
+	tribute2->usedToday = true;
+	tribute3->usedToday = true;
+	tribute4->usedToday = true;
+	ListofUsableTributes.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute2->ID);
+	ListofUsableTributes.remove(true, tribute3->ID);
+	ListofUsableTributes.remove(true, tribute4->ID);
+	tribute1 = NULL;
+	tribute2 = NULL;
+	tribute3 = NULL;
+	tribute4 = NULL;
+	tribute5 = NULL;
+	delete tribute1;
+	delete tribute2;
+	delete tribute3;
+	delete tribute4;
+	delete tribute5;
+	cout << action << "\n";
+	return 4;
 }
 
 int dayEventThirtySix()
