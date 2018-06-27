@@ -51,6 +51,8 @@ void simulation()
 	}
 }
 
+//This function determines at the end of the day if the tributes have food, water, shelter, and medkits
+//If they don't, they have a 15% chance of receiving an injury for it
 void endOfDayChecks()
 {
 	for (int i = 0; i < roster.size(); i++)
@@ -80,6 +82,11 @@ void endOfDayChecks()
 				int temp = rand() % 100 + 1;
 				if (temp <= 5)
 					roster[i].injury++;
+			}
+			if (roster[i].inventory.first_aid_kit > 0)
+			{
+				roster[i].inventory.first_aid_kit--;
+				roster[i].injury--;
 			}
 
 			if (roster[i].injury >= 5)
