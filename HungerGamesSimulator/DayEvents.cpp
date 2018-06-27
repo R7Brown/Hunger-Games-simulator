@@ -483,7 +483,7 @@ int dayEventSdayEventeen()
 	string action = "Tribute1 discovers a family of ducks";
 	if (tribute1->intelligence > 2)
 	{
-		action.append(" and tries to not think about what he/she1 is doing as they kill and defeather them for food.");
+		action.append(" and tries to not think about what he/she1 is doing as he/she1 kills and defeathers them for food.");
 		tribute1->inventory.food = tribute1->inventory.food + 1;
 	}
 	else
