@@ -76,8 +76,10 @@ int dayEventExample()
 	action = nameReplacer(action, number_of_tributes, *tribute1);
 	//Don't forget to mark the tribute as having done something today unless I guess your dayEvent doesn't fit the norm
 	tribute1->usedToday = true;
-	//These two lines are in charge of deleting the pointer to prdayEvent memory leaks
+	//These three lines are in charge of deleting the pointer to prdayEvent memory leaks
+	//As well as removing the trubute from the list of usable tributes
 	tribute1 = NULL;
+	ListofUsableTributes.remove(true, tribute1->ID);
 	delete tribute1;
 	//Print what happened to the screen
 	cout << action << "\n";
