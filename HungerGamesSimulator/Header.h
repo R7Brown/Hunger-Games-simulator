@@ -101,10 +101,10 @@ public: int ID = 0;
 typedef int(*func_ptr)();
 
 //GLOBAL VARIABLES
-extern vector <Tribute> roster;				//Source.cpp
-extern vector <func_ptr> dayEvents;			//DayEvents.cpp
-extern int livingTributes;					//Simulation.cpp && DayEvents.cpp
-extern int usableTributes;					//Simulation.cpp && DayEvents.cpp
+extern vector <Tribute> roster;								//Source.cpp
+extern vector <func_ptr> dayEvents;							//DayEvents.cpp
+extern int livingTributes;									//Simulation.cpp && DayEvents.cpp
+extern int usableTributes;									//Simulation.cpp && DayEvents.cpp
 extern LinkedList<int> ListofUsableTributes;				//Simulation.cpp && Tribute.cpp
 
 //SIMULATION FUNCTION

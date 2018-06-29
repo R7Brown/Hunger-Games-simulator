@@ -32,11 +32,6 @@ Tribute* Tribute::getTribute(int vector_size) {
 	//gets the id from the list
 	int temp2 = ListofUsableTributes[temp];
 
-	//This while loop makes sure that the randomly chosen tribute hasn't already performed an action today
-	//while (!roster[temp].alive || roster[temp].usedToday)
-	//	temp = rand() % roster.size();
-
-	//roster[temp2].usedToday = true;
-	//ListofUsableTributes.remove(temp);
+	//returns the tribute
 	return &roster[temp2];
 }
