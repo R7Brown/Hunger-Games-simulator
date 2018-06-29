@@ -474,7 +474,7 @@ int dayEventSixteen()
 	return 1;
 }
 
-int dayEventSdayEventeen()
+int dayEventSeventeen()
 {
 	if (usableTributes < 1)
 		return 0;
@@ -1573,11 +1573,283 @@ int dayEventForty()
 	return 2;
 }
 
-vector <func_ptr> dayEvents = { dayEventOne,		dayEventTwo,			dayEventThree,			dayEventFour,		dayEventFive,
-								dayEventSix,		dayEventSeven,			dayEventEight,			dayEventNine,		dayEventTen,
-								dayEventEleven,		dayEventTwelve,			dayEventThirteen,		dayEventFourteen,	dayEventFifteen,
-								dayEventSixteen,	dayEventSdayEventeen,	dayEventEighteen,		dayEventNineteen,	dayEventTwenty,
-								dayEventTwentyOne,	dayEventTwentyTwo,		dayEventTwentyThree,	dayEventTwentyFour,	dayEventTwentyFive,
-								dayEventTwentySix,	dayEventTwentySeven,	dayEventTwentyEight,	dayEventTwentyNine,	dayEventThirty,
-								dayEventThirtyOne,	dayEventThirtyTwo,		dayEventThirtyThree,	dayEventThirtyFour,	dayEventThirtyFive,
-								dayEventThirtySix,	dayEventThirtySeven,	dayEventThirtyEight,	dayEventThirtyNine,	dayEventForty };
+int dayEventFortyOne()
+{
+	//Bow & Arrow Event
+
+}
+
+int dayEventFortyTwo()
+{
+	//Knives event
+}
+
+int dayEventFortyThree()
+{
+	//Mace event
+
+}
+
+int dayEventFortyFour()
+{
+	//Spear event
+
+}
+
+int dayEventFortyFive()
+{
+	//Sickle event
+
+}
+
+int dayEventFortySix()
+{
+	//Trident event
+
+}
+
+int dayEventFortySeven()
+{
+	//Sais event
+
+}
+
+int dayEventFortyEight()
+{
+	//Hatchet event
+
+}
+
+int dayEventFortyNine()
+{
+	//Slingshot event
+
+}
+
+int dayEventFifty()
+{
+	//Pistol event
+
+}
+
+int dayEventFiftyOne()
+{
+	//Rifle event
+
+}
+
+int dayEventFiftyTwo()
+{
+	//Axe event
+
+}
+
+int dayEventFiftyThree()
+{
+	string action = "Tribute1 catches Tribute2 off guard and kills him/her2";
+}
+
+int dayEventFiftyFour()
+{
+	string action = "Tribute1 throws a knife into Tribute2's head";
+}
+
+int dayEventFiftyFive()
+{
+	string action = "Tribute1 begs for Tribute2 to kill him/her1";
+}
+
+int dayEventFiftySix()
+{
+	string action = "Tribute1 and Tribute2 work together to drown Tribute3";
+}
+
+int dayEventFiftySeven()
+{
+	string action = "Tribute1 strangles Tribute2 after fistfight";
+}
+
+int dayEventFiftyEight()
+{
+	string action = "Tribute1 shoots an arrow into Tribute2's head";
+}
+
+int dayEventFiftyNine()
+{
+	string action = "Tribute1 cannot handle the circumstances and commits suicide";
+}
+
+int dayEventSixty()
+{
+	string action = "Tribute1 bashes Tribute2's head against a rock several times";
+}
+
+int dayEventSixtyOne()
+{
+	string action = "Tribute1 unknowingly eats toxic berries";
+}
+
+int dayEventSixtyTwo()
+{
+	string action = "Tribute1 taints Tribute2's food, killing him/her2";
+}
+
+int dayEventSixtyThree()
+{
+	string action = "Tribute1 sets Tribute2 on fire with a molotov";
+}
+
+int dayEventSixtyFour()
+{
+	string action = "Tribute1 falls into a pit and dies";
+}
+
+int dayEventSixtyFive()
+{
+	string action = "Tribute1 stabs Tribute2 while his/her2 back is turned";
+}
+
+int dayEventSixtySix()
+{
+	string action = "Tribute1 severely injures Tribute2 and puts him/her2 out of his/her2 misery";
+	//or leave to die
+}
+
+int dayEventSixtySeven()
+{
+	string action = "Tribute1 attempts to climb a tree but falls to his/her1 death";
+}
+
+int dayEventSixtyEight()
+{
+	string action = "Tribute1's trap kills Tribute2";
+}
+
+int dayEventSixtyNine()
+{
+	string action = "Tribute1 is unable to convince Tribute2 to spare him/her1";
+	// success Only to kill trib1 himself/herself2
+}
+
+int dayEventSeventy()
+{
+	string action = "Tribute1 throws a knife into Tribute2's chest";
+}
+
+int dayEventSeventyOne()
+{
+	string action = "Tribute1 pushes Tribute2 off of a cliff";
+}
+
+int dayEventSeventyTwo()
+{
+	string action = "Tribute1, Tribute2 and Tribute3 but";
+	//One runs away as the other two kill one
+}
+
+int dayEventSeventyThree()
+{
+	string action = "Tribute1 sets off an explosive killing";
+	//Varying number of people
+}
+
+int dayEventSeventyFour()
+{
+	string action = "Tribute1 kills Tribute2 as he/she2 tries to run";
+}
+
+int dayEventSeventyFive()
+{
+	string action = "Tribute1 and Tribute2 threaten a double suicide but it fails and they die";
+}
+
+int dayEventSeventySix()
+{
+	string action = "Tribute1 dies of hypothermia";
+	//may want to make night event
+}
+
+int dayEventSeventySeven()
+{
+	string action = "Tribute1 dies of hunger";
+	//Or thirst
+}
+
+int dayEventSeventyEight()
+{
+	string action = "Tribute1 and Tribute2 team up to fight Tribute3 and Tribute4";
+}
+
+int dayEventSeventyNine()
+{
+	string action = "Tribute1 dies of dysentery";
+}
+
+int dayEventEighty()
+{
+	string action = "Tribute1 accidently detonates a land mine from the cornucopia";
+	//Or arms it
+}
+
+int dayEventEightyOne()
+{
+	string action = "Tribute1 attacks Tribute2 but Tribute3 intervenes";
+}
+
+int dayEventEightyTwo()
+{
+	string action = "Tribute1 uses his/her1 rope to strangle Tribute2";
+}
+
+int dayEventEightyThree()
+{
+	string action = "Tribute1, Tribute2, and Tribute3 ambush Tribute4, Tribute5, and Tribute6";
+	//chance to be unsuccessful
+}
+
+int dayEventEightyFour()
+{
+	string action = "Tribute1 stabs Tribute2 with a tree branch";
+}
+
+int dayEventEightyFive()
+{
+	string action = "Tribute1 forces Tribute2 to kill either Tribute3 or Tribute4";
+	//pick one
+	//or have trib1 kill trib2
+	//or 3 team up
+}
+
+int dayEventEightySix()
+{
+	string action = "Tribute1 poisons Tribute2's drink";
+}
+
+int dayEventEightySeven()
+{
+	string action = "Tribute1, Tribute2, and Tribute3 get into a fight";
+}
+
+int dayEventEightyEight()
+{
+	string action = "Tribute1 attempts sniping other tributes from atop a tree atop a cliff";
+}
+
+vector <func_ptr> dayEvents = { dayEventOne,			dayEventTwo,			dayEventThree,			dayEventFour,			dayEventFive,
+								dayEventSix,			dayEventSeven,			dayEventEight,			dayEventNine,			dayEventTen,
+								dayEventEleven,			dayEventTwelve,			dayEventThirteen,		dayEventFourteen,		dayEventFifteen,
+								dayEventSixteen,		dayEventSeventeen,		dayEventEighteen,		dayEventNineteen,		dayEventTwenty,
+								dayEventTwentyOne,		dayEventTwentyTwo,		dayEventTwentyThree,	dayEventTwentyFour,		dayEventTwentyFive,
+								dayEventTwentySix,		dayEventTwentySeven,	dayEventTwentyEight,	dayEventTwentyNine,		dayEventThirty,
+								dayEventThirtyOne,		dayEventThirtyTwo,		dayEventThirtyThree,	dayEventThirtyFour,		dayEventThirtyFive,
+								dayEventThirtySix,		dayEventThirtySeven,	dayEventThirtyEight,	dayEventThirtyNine,		dayEventForty,
+								dayEventFortyOne,		dayEventFortyTwo,		dayEventFortyThree,		dayEventFortyFour,		dayEventFortyFive,
+								dayEventFortySix,		dayEventFortySeven,		dayEventFortyEight,		dayEventFortyNine,		dayEventFifty,
+								dayEventFiftyOne,		dayEventFiftyTwo,		dayEventFiftyThree,		dayEventFiftyFour,		dayEventFiftyFive,
+								dayEventFiftySix,		dayEventFiftySeven,		dayEventFiftyEight,		dayEventFiftyNine,		dayEventSixty,
+								dayEventSixtyOne,		dayEventSixtyTwo,		dayEventSixtyThree,		dayEventSixtyFour,		dayEventSixtyFive,
+								dayEventSixtySix,		dayEventSixtySeven,		dayEventSixtyEight,		dayEventSixtyNine,		dayEventSeventy,
+								dayEventSeventyOne,		dayEventSeventyTwo,		dayEventSeventyThree,	dayEventSeventyFour,	dayEventSeventyFive,
+								dayEventSeventySix,		dayEventSeventySeven,	dayEventSeventyEight,	dayEventSeventyNine,	dayEventEighty,
+								dayEventEightyOne,		dayEventEightyTwo,		dayEventEightyThree,	dayEventEightyFour,		dayEventEightyFive,
+								dayEventEightySix,		dayEventEightySeven,	dayEventEightyEight};
