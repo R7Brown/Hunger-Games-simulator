@@ -18,13 +18,10 @@
 // 5. Feast Event						[]	//
 // 6. Inventory system for a tribute	[X]	//
 // 7. Custom Arenas						[]	//
-// 8. Reigning Champion					[]	//
 // 9. Save Rosters/Tributes				[X]	//
-// 10. Assists							[?]	//
 // 11. Injury system					[X]	//
 // 12. District Names					[]	//
 // 13. Quests							[]	//
-// 14. Bot Support						[?]	//
 // 15. GUI								[]	//
 //////////////////////////////////////////////
 
