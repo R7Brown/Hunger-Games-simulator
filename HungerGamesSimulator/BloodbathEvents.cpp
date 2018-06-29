@@ -113,4 +113,62 @@ int bbEventNineteen()
 	string action = "Tribute1 grabs a bottle of alcohol and a rag";
 	return 0;
 }
+
+int bbEventTwenty()
+{
+	string action = "Tribute1 grabs a backpack full of camping supplies";
+	return 0;
+}
+
+int bbEventTwentyOne()
+{
+	string action = "Tribute1 grabs a backpack not realizing it's empty";
+	return 0;
+}
+
+int bbEventTwentyTwo()
+{
+	string action = "Tribute1 breaks Tribute2's nose for a basket of bread";
+	return 0;
+}
+
+int bbEventTwentyTwo()
+{
+	string action = "Tribute1, Tribute2, Tribute3, and Tribute4 share everything they gathered before running";
+	return 0;
+}
+
+int bbEventTwentyThree()
+{
+	string action = "Tribute1 grabs a trident from inside the cornucopia";
+	return 0;
+}
+
+int bbEventTwentyFour()
+{
+	string action = "Tribute1 grabs fishing bait while Tribute2 grabs fishing gear";
+	return 0;
+}
+
+int bbEventTwentyFive()
+{
+	string action = "Tribute1 scares Tribute2 away from the cornucopia";
+	return 0;
+}
+
+int bbEventTwentySix()
+{
+	string action = "Tribute1 grabs a shield leaning against the cornucopia";
+	return 0;
+}
+
+int bbEventTwentySeven()
+{
+	string action = "Tribute1 snatches a pair of sais";
+	return 0;
+}
+
+
+
+
 vector <func_ptr> bbEvents = {bbEventOne};
