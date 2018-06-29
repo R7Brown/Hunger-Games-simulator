@@ -1410,20 +1410,84 @@ int dayEventThirtyFive()
 
 int dayEventThirtySix()
 {
-	string action = "Tribute1 constructs a shack";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	string action = "";
+	if (tribute1->intelligence > 5)
+	{
+		action.append("Tribute1 constructs a shack.");
+		tribute1->inventory.camping_equipment = tribute1->inventory.camping_equipment + 2;
+	}
+	else
+	{
+		tribute1 = NULL;
+		delete tribute1;
+		return 0;
+	}
+		action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	ListofUsableTributes.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int dayEventThirtySeven()
 {
-	string action = "Tribute1 thinks about home";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	string action = "Tribute1 spends the day thinking about home.";
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	ListofUsableTributes.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	return 1;
 }
 
 int dayEventThirtyEight()
 {
+	if (usableTributes < 2)
+		return 0;
+	Tribute *tribute1 = NULL;
+	Tribute *tribute2 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	tribute2 = tribute2->getTribute(roster.size());
+	while (tribute2->ID == tribute1->ID)
+	{
+		tribute2 = NULL;
+		delete tribute2;
+		tribute2 = tribute2->getTribute(roster.size());
+	}
 	string action = "Tribute1 and Tribute2 split up to search for resources";
-	return 0;
+	if ((tribute1->perception + tribute2->perception) > 10)
+	{
+		action.append(" and split what they find.");
+		tribute1->inventory.food++;
+		tribute1->inventory.canteen_of_water++;
+		tribute2->inventory.food++;
+		tribute2->inventory.canteen_of_water++;
+	}
+	else
+	{
+		action.append(" but spend the day looking without finding anything worthwhile.");
+	}
+	action = nameReplacer(action, 1, *tribute1);
+	action = nameReplacer(action, 2, *tribute2);
+	tribute1->usedToday = true;
+	tribute2->usedToday = true;
+	ListofUsableTributes.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute2->ID);
+	tribute1 = NULL;
+	tribute2 = NULL;
+	delete tribute1;
+	delete tribute2;
+	return 2;
 }
 
 int dayEventThirtyNine()
@@ -1444,11 +1508,25 @@ int dayEventThirtyNine()
 
 int dayEventForty()
 {
-	string action = "";
-	/*if (tribute1->inventory.sword > 0 && tribute2->inventory.sword == 0)
+	//SWORD FIGHT EVENT
+	if (usableTributes < 2)
+		return 0;
+	Tribute *tribute1 = NULL;
+	Tribute *tribute2 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	tribute2 = tribute2->getTribute(roster.size());
+	while (tribute2->ID == tribute1->ID)
+	{
+		tribute2 = NULL;
+		delete tribute2;
+		tribute2 = tribute2->getTribute(roster.size());
+	}
+	string action = "Tribute1 and Tribute2 run into each other in the arena and begin to fight\n";
+	if (tribute1->inventory.sword > 0 && tribute2->inventory.sword == 0)
 	{
 		action.append("\tTribute1 uses his/her1 sword and fatally stabs Tribute2 in the abdomen, spilling his/her2 intestines all over the ground, killing him/her2.");
 		tribute2->alive = false;
+		livingTributes--;
 	}
 	else if (tribute1->inventory.sword > 0 && tribute2->inventory.sword > 0)
 	{
@@ -1457,12 +1535,14 @@ int dayEventForty()
 		{
 			action.append(" where Tribute2 is eventually decapitated, but not before deeply slashing Tribute1.");
 			tribute2->alive = false;
+			livingTributes--;
 			tribute1->injury++;
 		}
 		else if (tribute2->agility > tribute1->agility)
 		{
-			action.append(" where Tribute1 loses his/her1 arm in the fight, after gashing Tribute2 across his/her2 face, and bleeds out on the ground as Tribute2 watches.");
+			action.append(" where Tribute1 loses his/her1 arm in the fight after gashing Tribute2 across his/her2 face.\n\the/she1 bleeds out on the ground as Tribute2 watches.");
 			tribute1->alive = false;
+			livingTributes--;
 			tribute2->injury++;
 		}
 		else
@@ -1470,9 +1550,27 @@ int dayEventForty()
 			action.append(" which ends in both tributes stabbing each fatally and dying on the ground forever looking into each others' eyes with hatred.");
 			tribute1->alive = false;
 			tribute2->alive = false;
+			livingTributes = livingTributes - 2;
 		}
-	}*/
-	return 0;
+	} 
+	else
+	{
+		action.append("\tAs Tribute1 charges Tribute2, he/she2 pulls out his/her2 sword and thrusts it into Tribute1's charging shoulder knocking him/her1 to the ground.\n\tTribute2 uses this opportunity to plunge the sword into Tribute1's abdomen, killing him/her1.");
+		tribute1->alive = false;
+		livingTributes--;
+	}
+	action = nameReplacer(action, 1, *tribute1);
+	action = nameReplacer(action, 2, *tribute2);
+	tribute1->usedToday = true;
+	tribute2->usedToday = true;
+	ListofUsableTributes.remove(true, tribute1->ID);
+	ListofUsableTributes.remove(true, tribute2->ID);
+	tribute1 = NULL;
+	tribute2 = NULL;
+	delete tribute1;
+	delete tribute2;
+	cout << action << "\n";
+	return 2;
 }
 
 vector <func_ptr> dayEvents = { dayEventOne,		dayEventTwo,			dayEventThree,			dayEventFour,		dayEventFive,
