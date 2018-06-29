@@ -1576,240 +1576,273 @@ int dayEventForty()
 int dayEventFortyOne()
 {
 	//Bow & Arrow Event
-
+	return 0;
 }
 
 int dayEventFortyTwo()
 {
 	//Knives event
+	return 0;
 }
 
 int dayEventFortyThree()
 {
 	//Mace event
-
+	return 0;
 }
 
 int dayEventFortyFour()
 {
 	//Spear event
-
+	return 0;
 }
 
 int dayEventFortyFive()
 {
 	//Sickle event
-
+	return 0;
 }
 
 int dayEventFortySix()
 {
 	//Trident event
-
+	return 0;
 }
 
 int dayEventFortySeven()
 {
 	//Sais event
-
+	return 0;
 }
 
 int dayEventFortyEight()
 {
 	//Hatchet event
-
+	return 0;
 }
 
 int dayEventFortyNine()
 {
 	//Slingshot event
-
+	return 0;
 }
 
 int dayEventFifty()
 {
 	//Pistol event
-
+	return 0;
 }
 
 int dayEventFiftyOne()
 {
 	//Rifle event
-
+	return 0;
 }
 
 int dayEventFiftyTwo()
 {
 	//Axe event
-
+	return 0;
 }
 
 int dayEventFiftyThree()
 {
 	string action = "Tribute1 catches Tribute2 off guard and kills him/her2";
+	return 0;
 }
 
 int dayEventFiftyFour()
 {
 	string action = "Tribute1 throws a knife into Tribute2's head";
+	return 0;
 }
 
 int dayEventFiftyFive()
 {
 	string action = "Tribute1 begs for Tribute2 to kill him/her1";
+	return 0;
 }
 
 int dayEventFiftySix()
 {
 	string action = "Tribute1 and Tribute2 work together to drown Tribute3";
+	return 0;
 }
 
 int dayEventFiftySeven()
 {
 	string action = "Tribute1 strangles Tribute2 after fistfight";
+	return 0;
 }
 
 int dayEventFiftyEight()
 {
 	string action = "Tribute1 shoots an arrow into Tribute2's head";
+	return 0;
 }
 
 int dayEventFiftyNine()
 {
 	string action = "Tribute1 cannot handle the circumstances and commits suicide";
+	return 0;
 }
 
 int dayEventSixty()
 {
 	string action = "Tribute1 bashes Tribute2's head against a rock several times";
+	return 0;
 }
 
 int dayEventSixtyOne()
 {
 	string action = "Tribute1 unknowingly eats toxic berries";
+	return 0;
 }
 
 int dayEventSixtyTwo()
 {
 	string action = "Tribute1 taints Tribute2's food, killing him/her2";
+	return 0;
 }
 
 int dayEventSixtyThree()
 {
 	string action = "Tribute1 sets Tribute2 on fire with a molotov";
+	return 0;
 }
 
 int dayEventSixtyFour()
 {
 	string action = "Tribute1 falls into a pit and dies";
+	return 0;
 }
 
 int dayEventSixtyFive()
 {
 	string action = "Tribute1 stabs Tribute2 while his/her2 back is turned";
+	return 0;
 }
 
 int dayEventSixtySix()
 {
 	string action = "Tribute1 severely injures Tribute2 and puts him/her2 out of his/her2 misery";
 	//or leave to die
+	return 0;
 }
 
 int dayEventSixtySeven()
 {
 	string action = "Tribute1 attempts to climb a tree but falls to his/her1 death";
+	return 0;
 }
 
 int dayEventSixtyEight()
 {
 	string action = "Tribute1's trap kills Tribute2";
+	return 0;
 }
 
 int dayEventSixtyNine()
 {
 	string action = "Tribute1 is unable to convince Tribute2 to spare him/her1";
 	// success Only to kill trib1 himself/herself2
+	return 0;
 }
 
 int dayEventSeventy()
 {
 	string action = "Tribute1 throws a knife into Tribute2's chest";
+	return 0;
 }
 
 int dayEventSeventyOne()
 {
 	string action = "Tribute1 pushes Tribute2 off of a cliff";
+	return 0;
 }
 
 int dayEventSeventyTwo()
 {
 	string action = "Tribute1, Tribute2 and Tribute3 but";
 	//One runs away as the other two kill one
+	return 0;
 }
 
 int dayEventSeventyThree()
 {
 	string action = "Tribute1 sets off an explosive killing";
 	//Varying number of people
+	return 0;
 }
 
 int dayEventSeventyFour()
 {
 	string action = "Tribute1 kills Tribute2 as he/she2 tries to run";
+	return 0;
 }
 
 int dayEventSeventyFive()
 {
 	string action = "Tribute1 and Tribute2 threaten a double suicide but it fails and they die";
+	return 0;
 }
 
 int dayEventSeventySix()
 {
 	string action = "Tribute1 dies of hypothermia";
 	//may want to make night event
+	return 0;
 }
 
 int dayEventSeventySeven()
 {
 	string action = "Tribute1 dies of hunger";
 	//Or thirst
+	return 0;
 }
 
 int dayEventSeventyEight()
 {
 	string action = "Tribute1 and Tribute2 team up to fight Tribute3 and Tribute4";
+	return 0;
 }
 
 int dayEventSeventyNine()
 {
 	string action = "Tribute1 dies of dysentery";
+	return 0;
 }
 
 int dayEventEighty()
 {
 	string action = "Tribute1 accidently detonates a land mine from the cornucopia";
 	//Or arms it
+	return 0;
 }
 
 int dayEventEightyOne()
 {
 	string action = "Tribute1 attacks Tribute2 but Tribute3 intervenes";
+	return 0;
 }
 
 int dayEventEightyTwo()
 {
 	string action = "Tribute1 uses his/her1 rope to strangle Tribute2";
+	return 0;
 }
 
 int dayEventEightyThree()
 {
 	string action = "Tribute1, Tribute2, and Tribute3 ambush Tribute4, Tribute5, and Tribute6";
 	//chance to be unsuccessful
+	return 0;
 }
 
 int dayEventEightyFour()
 {
 	string action = "Tribute1 stabs Tribute2 with a tree branch";
+	return 0;
 }
 
 int dayEventEightyFive()
@@ -1818,21 +1851,25 @@ int dayEventEightyFive()
 	//pick one
 	//or have trib1 kill trib2
 	//or 3 team up
+	return 0;
 }
 
 int dayEventEightySix()
 {
 	string action = "Tribute1 poisons Tribute2's drink";
+	return 0;
 }
 
 int dayEventEightySeven()
 {
 	string action = "Tribute1, Tribute2, and Tribute3 get into a fight";
+	return 0;
 }
 
 int dayEventEightyEight()
 {
 	string action = "Tribute1 attempts sniping other tributes from atop a tree atop a cliff";
+	return 0;
 }
 
 vector <func_ptr> dayEvents = { dayEventOne,			dayEventTwo,			dayEventThree,			dayEventFour,			dayEventFive,
