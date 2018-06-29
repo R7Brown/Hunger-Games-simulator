@@ -100,6 +100,8 @@ typedef int(*func_ptr)();
 //GLOBAL VARIABLES
 extern vector <Tribute> roster;								//Source.cpp
 extern vector <func_ptr> dayEvents;							//DayEvents.cpp
+extern vector <func_ptr> nightEvents;						//NightEvents.cpp
+extern vector <func_ptr> bbEvents;							//BloodbathEvents.cpp
 extern int livingTributes;									//Simulation.cpp && DayEvents.cpp
 extern int usableTributes;									//Simulation.cpp && DayEvents.cpp
 extern LinkedList<int> ListofUsableTributes;				//Simulation.cpp && Tribute.cpp
