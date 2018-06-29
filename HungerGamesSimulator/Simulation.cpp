@@ -53,6 +53,7 @@ void simulation()
 
 //This function determines at the end of the day if the tributes have food, water, shelter, and medkits
 //If they don't, they have a 15% chance of receiving an injury for it
+//Also can kill a tribute if injury is high enough
 void endOfDayChecks()
 {
 	for (int i = 0; i < roster.size(); i++)

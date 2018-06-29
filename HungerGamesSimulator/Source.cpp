@@ -64,7 +64,7 @@ int main() {
 		}
 
 		cout << endl;
-		//Switch statement to determine which function to call next
+		//Switch statement to determine which function to call next in the program
 		switch (choice) 
 		{
 		case 1:
@@ -130,6 +130,7 @@ void buildRoster() {
 
 	//checks the first 3 characters in a file for a unicode BOS
 	//Uses regex to check if the first 3 characters are english letters or not
+	//ISSUE: might not work if tribute has name with a title (Dr. or  Mr.)
 	string temp;
 	regex reg("[A-Za-z]*");
 	for (int j = 0; j < 3; j++)
