@@ -16,6 +16,7 @@
 
 int livingTributes;
 int usableTributes;
+int BloodBathAvailablePoints;
 
 void resetUsable();
 void endOfDayChecks();
@@ -31,6 +32,7 @@ void simulation()
 	int dayNum = 1;
 	livingTributes = roster.size();
 	usableTributes = roster.size();
+	BloodBathAvailablePoints = 100;
 
 	while (livingTributes > 1)
 	{
