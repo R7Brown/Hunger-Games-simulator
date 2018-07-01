@@ -17,6 +17,7 @@ Tribute::Tribute() {
 	luck = 1;
 
 	injury = 0;
+	BloodbathPoints = 0;
 }
 
 Tribute* Tribute::getTribute(int vector_size) {
