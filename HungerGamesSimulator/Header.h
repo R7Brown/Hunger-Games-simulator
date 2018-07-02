@@ -86,7 +86,6 @@ struct Inventory {
 	int grapple_hook = 0;
 	int poison = 0;
 	int rocks = 0;
-	int shovel = 0;
 	int matches = 0;
 	int gasoline = 0;
 	int torch = 0;
@@ -114,6 +113,7 @@ public: int ID = 0;
 
 		int injury;
 		int BloodbathPoints;
+		int hypothermiaPoints;
 		Tribute();
 		Tribute* getTribute(int vector_size);
 };

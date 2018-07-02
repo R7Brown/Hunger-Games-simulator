@@ -92,7 +92,8 @@ int main() {
 			return 0;
 			break;
 		case 7:
-			bbEvents[0]();
+			if ((true || false) && (true || false))
+				cout << "true";
 			break;
 		default:
 			system("CLS");

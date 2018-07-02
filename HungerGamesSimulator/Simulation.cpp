@@ -87,14 +87,14 @@ void endOfDayChecks()
 				if (temp <= 5)
 					roster[i].injury++;
 			}
-			/*if (roster[i].inventory.firewood > 0 && (roster[i].inventory.matches > 0 || roster[i].inventory.torch > 0))
+			if ((roster[i].inventory.gasoline > 0 || roster[i].inventory.firewood > 0) && (roster[i].inventory.matches > 0 || roster[i].inventory.torch > 0))
 				roster[i].inventory.firewood--;
 			else
 			{
 				int temp = rand() % 100 + 1;
 				if (temp <= 5)
-					roster[i].injury++;
-			}*/
+					roster[i].hypothermiaPoints++;
+			}
 			if (roster[i].inventory.food > 0)
 				roster[i].inventory.food--;
 			else
@@ -109,7 +109,7 @@ void endOfDayChecks()
 				roster[i].injury--;
 			}
 
-			if (roster[i].injury >= 5)
+			if (roster[i].injury >= 5 || roster[i].hypothermiaPoints >= 5)
 			{
 				roster[i].alive = false;
 				livingTributes--;

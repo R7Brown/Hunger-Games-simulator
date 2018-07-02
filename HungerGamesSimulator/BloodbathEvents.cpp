@@ -223,7 +223,6 @@ int bbEventFive()
 
 int bbEventSix()
 {
-	int eventvalue = 5;
 	if (usableTributes < 2)
 		return 0;
 	int eventvalue = BLOODBATHMAXPOINTS;
@@ -401,7 +400,7 @@ int bbEventEleven()
 		return 0;
 	}
 	string action = "Tribute1 gathers as much food as he/she1 can";
-	tribute1->inventory.knives = tribute1->inventory.knives + 5;
+	tribute1->inventory.food = tribute1->inventory.food + 5;
 	tribute1->BloodbathPoints += eventvalue;
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 	{
