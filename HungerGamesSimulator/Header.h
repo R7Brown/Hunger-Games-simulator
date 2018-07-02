@@ -69,7 +69,28 @@ struct Inventory {
 	int pistol = 0;
 	int rifle = 0;
 	int axe = 0;
-
+	//new items
+	int flashlight = 0;
+	int helmet = 0;
+	int shotgun = 0;
+	int bait = 0;
+	int trap = 0;
+	int chestplate = 0;
+	int flare_gun = 0;
+	int flares = 0;
+	int gloves = 0;
+	int tripmine = 0;
+	int map = 0;
+	int club = 0;
+	int scope = 0;
+	int smoke_grenade = 0;
+	int grapple_hook = 0;
+	int poison = 0;
+	int rocks = 0;
+	int shovel = 0;
+	int matches = 0;
+	int gasoline = 0;
+	int torch = 0;
 };
 
 class Tribute {
