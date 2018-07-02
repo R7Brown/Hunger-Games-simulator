@@ -40,6 +40,7 @@
 
 //Max points a tribute can have in the bloodbath
 #define BLOODBATHMAXPOINTS 5
+#define DEBUG true
 
 using namespace std;
 
@@ -132,6 +133,7 @@ extern LinkedList<int> ListofUsableTributes;				//Simulation.cpp && Tribute.cpp
 
 //SIMULATION FUNCTION
 extern void simulation();
+extern void simMenu(int dayNum);
 
 //EVENTS FUNCTIONS
 extern string pronounReplacer(string action, Tribute tribute, int count);
