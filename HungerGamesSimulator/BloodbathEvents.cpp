@@ -136,6 +136,7 @@ int bbEventThree()
 	tribute1->inventory.first_aid_kit = tribute1->inventory.first_aid_kit + 3;
 	tribute1->inventory.firewood++;
 	tribute1->inventory.rope++;
+	tribute1->inventory.spear++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->BloodbathPoints += eventvalue;
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
@@ -151,8 +152,33 @@ int bbEventThree()
 
 int bbEventFour()
 {
-	string action = "Tribute1 grabs a backpack full of supplies and runs off into the woods";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	int eventvalue = BLOODBATHMAXPOINTS;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
+	{
+		tribute1 = NULL;
+		delete tribute1;
+		return 0;
+	}
+	string action = "Tribute1 grabs a backpack full of supplies and runs off into the woods.";
+	tribute1->inventory.spear++;
+	tribute1->inventory.sword++;
+	tribute1->inventory.mace++;
+	tribute1->inventory.knives = tribute1->inventory.knives + 5;
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->BloodbathPoints += eventvalue;
+	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
+	{
+		tribute1->usedToday = true;
+		ListofUsableTributes.remove(true, tribute1->ID);
+	}
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return (eventvalue * 1);
 }
 
 int bbEventFive()

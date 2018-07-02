@@ -47,10 +47,17 @@ void simulation()
 			usableTributes = usableTributes - (dayEvents[rand() % dayEvents.size()]());
 		//Note to self: Mention to brady about dumping internal values to file if running in real time
 		endOfDayChecks();
-		resetUsable();
+		if (DEBUG)
+		{
+			simMenu(dayNum);
+		}
+		//resetUsable();
 
 		while (usableTributes > 0)
 			usableTributes = usableTributes - (nightEvents[rand() % nightEvents.size()]());
+
+		cout << "\n";
+
 		dayNum++;
 	}
 }
@@ -100,6 +107,32 @@ void endOfDayChecks()
 				livingTributes--;
 				cout << roster[i].name << " succumbs to their wounds and dies.\n";
 			}
+		}
+	}
+}
+
+void simMenu(int dayNum)
+{
+	int choice = 0;
+	while (true)
+	{
+		cout << "End of Day " << dayNum << ". Please select what you would like to do:\n"
+			<< "1. View Roster\n"
+			<< "2. Continue\n\n";
+		while (!(cin >> choice))
+		{
+			cin.clear();
+			cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+			cout << "Invalid input.  Try again: ";
+		}
+		switch (choice)
+		{
+		case 1:
+			viewRoster(false);
+			break;
+		case 2:
+			return;
+			break;
 		}
 	}
 }
