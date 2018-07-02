@@ -92,6 +92,7 @@ int main() {
 			return 0;
 			break;
 		case 7:
+			bbEvents[0]();
 			break;
 		default:
 			system("CLS");
