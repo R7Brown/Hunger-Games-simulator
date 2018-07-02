@@ -32,6 +32,7 @@ void simulation()
 	int dayNum = 1;
 	livingTributes = roster.size();
 	usableTributes = roster.size();
+	//This value should be changed based on how many tributes are in the roster and on how many events you wish to take place.
 	BloodBathAvailablePoints = 100;
 
 	while (livingTributes > 1)
@@ -104,6 +105,7 @@ void endOfDayChecks()
 void resetUsable()
 {	
 	usableTributes = 0;
+	ListofUsableTributes.emptylist();
 	for (int i = 0; i < roster.size(); i++)
 	{
 		if (roster[i].alive)
@@ -113,4 +115,10 @@ void resetUsable()
 			usableTributes++;
 		}
 	}
+}
+
+//Resets the stats and the inventory of each tribute currently in the roster.
+void resetRoster()
+{
+
 }

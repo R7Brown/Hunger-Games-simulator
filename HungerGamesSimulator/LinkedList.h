@@ -233,6 +233,15 @@ public:
 		remove(index);
 	}
 
+	//Empties list back to size 0
+	void emptylist()
+	{
+		for (int i = 0; i < size; i++)
+		{
+			remove(0);
+		}
+	}
+
 	//gets element at a certain index of the list.
 	T getElement(int index)
 	{

@@ -39,7 +39,7 @@
 #include"LinkedList.h"
 
 //Max points a tribute can have in the bloodbath
-#define BLOODBATHMAXPOINTS 5;
+#define BLOODBATHMAXPOINTS 5
 
 using namespace std;
 
@@ -109,7 +109,7 @@ extern vector <func_ptr> nightEvents;						//NightEvents.cpp
 extern vector <func_ptr> bbEvents;							//BloodbathEvents.cpp
 extern int livingTributes;									//Simulation.cpp && DayEvents.cpp
 extern int usableTributes;									//Simulation.cpp && DayEvents.cpp
-extern int BloodBathAvailablePoints;                        //BloodbathEvents.cpp
+extern int BloodBathAvailablePoints;                        //Simulation.cpp && BloodbathEvents.cpp
 extern LinkedList<int> ListofUsableTributes;				//Simulation.cpp && Tribute.cpp
 
 //SIMULATION FUNCTION
