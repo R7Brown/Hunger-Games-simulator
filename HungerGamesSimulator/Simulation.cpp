@@ -32,6 +32,7 @@ void simulation()
 	int dayNum = 1;
 	livingTributes = roster.size();
 	usableTributes = roster.size();
+	//This value should be changed based on how many tributes are in the roster and on how many events you wish to take place.
 	BloodBathAvailablePoints = 100;
 
 	while (livingTributes > 1)
