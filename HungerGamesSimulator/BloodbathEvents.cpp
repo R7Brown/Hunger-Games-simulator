@@ -71,6 +71,8 @@ int bbEventOne()
 	tribute1->inventory.knives++;
 	tribute1->inventory.camping_equipment = tribute1->inventory.camping_equipment + 2;
 	tribute1->inventory.rope++;
+	tribute1->inventory.slingshot++;
+	tribute1->inventory.rocks = tribute1->inventory.rocks + 10;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->BloodbathPoints += eventvalue;
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
@@ -104,6 +106,8 @@ int bbEventTwo()
 	tribute1->inventory.firewood = tribute1->inventory.firewood + 3;
 	tribute1->inventory.food = tribute1->inventory.food + 3;
 	tribute1->inventory.canteen_of_water = tribute1->inventory.canteen_of_water + 3;
+	tribute1->inventory.bait++;
+	tribute1->inventory.net++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->BloodbathPoints += eventvalue;
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
@@ -137,6 +141,7 @@ int bbEventThree()
 	tribute1->inventory.firewood++;
 	tribute1->inventory.rope++;
 	tribute1->inventory.spear++;
+	tribute1->inventory.poison++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->BloodbathPoints += eventvalue;
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
@@ -168,6 +173,8 @@ int bbEventFour()
 	tribute1->inventory.sword++;
 	tribute1->inventory.mace++;
 	tribute1->inventory.knives = tribute1->inventory.knives + 5;
+	tribute1->inventory.helmet++;
+	tribute1->inventory.chestplate++;
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->BloodbathPoints += eventvalue;
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
@@ -183,14 +190,103 @@ int bbEventFour()
 
 int bbEventFive()
 {
-	string action = "Tribute1 grabs a backpack full of supplies and runs off into the woods";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	int eventvalue = BLOODBATHMAXPOINTS;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
+	{
+		tribute1 = NULL;
+		delete tribute1;
+		return 0;
+	}
+	string action = "Tribute1 grabs a backpack full of supplies and runs off into the woods.";
+	tribute1->inventory.ammo = tribute1->inventory.ammo + 10;
+	tribute1->inventory.pistol++;
+	tribute1->inventory.chestplate++;
+	tribute1->inventory.flashlight++;
+	tribute1->inventory.flares = tribute1->inventory.flares + 3;
+	tribute1->inventory.flare_gun++;
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->BloodbathPoints += eventvalue;
+	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
+	{
+		tribute1->usedToday = true;
+		ListofUsableTributes.remove(true, tribute1->ID);
+	}
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return (eventvalue * 1);
 }
 
 int bbEventSix()
 {
+	if (usableTributes < 2)
+		return 0;
+	int eventvalue = BLOODBATHMAXPOINTS;
+	Tribute *tribute1 = NULL;
+	Tribute *tribute2 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
+	{
+		tribute1 = NULL;
+		delete tribute1;
+		return 0;
+	}
+	tribute2 = tribute2->getTribute(roster.size());
+	while ((tribute2->ID == tribute1->ID) || ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS))
+	{
+		tribute2 = NULL;
+		delete tribute2;
+		tribute2 = tribute2->getTribute(roster.size());
+	}
 	string action = "Tribute1 and Tribute2 fight over a backpack of supplies";
-	return 0;
+	if (tribute1->strength > tribute2->strength)
+	{
+		action.append(" and Tribute1 overpowers Tribute2 to take the bag.");
+		tribute1->BloodbathPoints += eventvalue;
+		if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
+		{
+			tribute1->usedToday = true;
+			ListofUsableTributes.remove(true, tribute1->ID);
+		}
+	}
+	else if (tribute2->strength < tribute1->strength)
+	{
+		action.append(" and Tribute2 overpowers Tribute1 to take the bag.");
+		tribute2->BloodbathPoints += eventvalue;
+		if (tribute2->BloodbathPoints >= BLOODBATHMAXPOINTS)
+		{
+			tribute2->usedToday = true;
+			ListofUsableTributes.remove(true, tribute2->ID);
+		}
+	}
+	else
+	{
+		tribute1->BloodbathPoints += eventvalue;
+		if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
+		{
+			tribute1->usedToday = true;
+			ListofUsableTributes.remove(true, tribute1->ID);
+		}
+		tribute2->BloodbathPoints += eventvalue;
+		if (tribute2->BloodbathPoints >= BLOODBATHMAXPOINTS)
+		{
+			tribute2->usedToday = true;
+			ListofUsableTributes.remove(true, tribute2->ID);
+		}
+		action.append(" and the bag gets taken while they fight each other.");
+	}
+	action = nameReplacer(action, 1, *tribute1);
+	action = nameReplacer(action, 2, *tribute2);
+	tribute1 = NULL;
+	tribute2 = NULL;
+	delete tribute2;
+	delete tribute1;
+	cout << action << "\n";
+	return (eventvalue * 2);
 }
 
 int bbEventSeven()

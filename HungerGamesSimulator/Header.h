@@ -46,7 +46,6 @@ using namespace std;
 
 struct Inventory {
 	int shovel = 0;
-	int bag = 0;
 	int bow = 0;
 	int arrow = 0;
 	int knives = 0;
@@ -91,6 +90,7 @@ struct Inventory {
 	int matches = 0;
 	int gasoline = 0;
 	int torch = 0;
+	int net = 0;
 };
 
 class Tribute {
