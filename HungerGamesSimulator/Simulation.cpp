@@ -40,16 +40,13 @@ void simulation()
 		cout << "Day: " << dayNum << "\n";
 		resetUsable();
 		while (usableTributes > 0)
-		{
 			usableTributes = usableTributes - (dayEvents[rand() % dayEvents.size()]());
-		}
 		//Note to self: Mention to brady about dumping internal values to file if running in real time
 		endOfDayChecks();
+		resetUsable();
 
 		while (usableTributes > 0)
-		{
-
-		}
+			usableTributes = usableTributes - (nightEvents[rand() % nightEvents.size()]());
 		dayNum++;
 	}
 }

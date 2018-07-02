@@ -228,4 +228,9 @@ int bbEventTwentyEight()
 
 
 
-vector <func_ptr> bbEvents = {bbEventOne};
+vector <func_ptr> bbEvents = {	bbEventOne,			bbEventTwo,				bbEventThree,			bbEventFour,		bbEventFive,
+								bbEventSix,			bbEventSeven,			bbEventEight,			bbEventNine,		bbEventTen,
+								bbEventEleven,		bbEventTwelve,			bbEventThirteen,		bbEventFourteen,	bbEventFifteen,
+								bbEventSixteen,		bbEventSeventeen,		bbEventEighteen,		bbEventNineteen,	bbEventTwenty,
+								bbEventTwentyOne,	bbEventTwentyTwo,		bbEventTwentyThree,		bbEventTwentyFour,	bbEventTwentyFive,
+								bbEventTwentySix,	bbEventTwentySeven,		bbEventTwentyEight};
