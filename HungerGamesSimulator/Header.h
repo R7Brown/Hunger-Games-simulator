@@ -87,7 +87,6 @@ struct Inventory {
 	int grapple_hook = 0;
 	int poison = 0;
 	int rocks = 0;
-	int shovel = 0;
 	int matches = 0;
 	int gasoline = 0;
 	int torch = 0;
