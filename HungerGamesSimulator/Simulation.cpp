@@ -87,6 +87,14 @@ void endOfDayChecks()
 				if (temp <= 5)
 					roster[i].injury++;
 			}
+			/*if (roster[i].inventory.firewood > 0 && (roster[i].inventory.matches > 0 || roster[i].inventory.torch > 0))
+				roster[i].inventory.firewood--;
+			else
+			{
+				int temp = rand() % 100 + 1;
+				if (temp <= 5)
+					roster[i].injury++;
+			}*/
 			if (roster[i].inventory.food > 0)
 				roster[i].inventory.food--;
 			else
