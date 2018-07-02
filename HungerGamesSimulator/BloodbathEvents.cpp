@@ -1,5 +1,62 @@
 #include "Header.h"
 
+string pronounReplacer(string action, Tribute tribute, int count);
+string nameReplacer(string action, int i, Tribute tribute);
+
+//bbEvent STRUCTURE
+int bbEventExample()
+{
+	//THIS FIRST IF STATEMENT IS USED TO CHECK IF THE bbEvent CALLED CAN EVEN BE RUN
+	//DON'T FORGET THIS OR THE PROGRAM IS LIKELY TO RUN ITSELF INTO AN ENDLESS LOOP 
+	//TRYING TO GET A TRIBUTE
+	//The int number_of_tributes should be hardcoded unless the number of tributes used could vary based on certain conditions,
+	//in that case this variable should be changed as such. It will be used in the return of the method so this is essential
+	int number_of_tributes = 1;
+	if (number_of_tributes > usableTributes)
+		return 0;
+	//event value can vary depending of what happens in this event
+	int eventvalue = 0;
+	//These two lines are getting a tribute pointer to point at a tribute
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	//the Tribute must have fewer points than their points plus the event value to not go over the maximum points.
+	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
+	{
+		tribute1 = NULL;
+		delete tribute1;
+		return 0;
+	}
+	//Action is the string that determines the uniqueness of each bbEvent. You can make it whatever you want really
+	string action = "";
+	/************************************************
+	Checks go here based on what the bbEvent is
+	Checks can check anything from stats to inventory to injuries
+	Take care to edit stats, inventory, injuries etc. based on what the bbEvent is
+	Otherwise you're gonna get tributes with inventories and injuries and kills that don't match the output
+	*************************************************/
+	//Sending action to the nameReplacer function also sends it to the pronounReplacer function
+	//This is purely for output, since tributes and their stuff will still be edited by the bbEvent
+	//But forgetting to send the action to the function will print 'Tribute1' and whatnot all over the output to the screen
+	action = nameReplacer(action, number_of_tributes, *tribute1);
+	//For each tribute the eventvalue should be added to their BloodBathPoints value
+	//If this operation causes the tribute to reach BLOODBATHMAXPOINTS then the tribute should be considered used
+	//The tribute then must be marked used and removed from the ListofUsableTributes
+	tribute1->BloodbathPoints += eventvalue;
+	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
+	{
+		tribute1->usedToday = true;
+		ListofUsableTributes.remove(true, tribute1->ID);
+	}	
+	//These three lines are in charge of deleting the pointer to prdayEvent memory leaks
+	//As well as removing the trubute from the list of usable tributes
+	tribute1 = NULL;
+	delete tribute1;
+	//Print what happened to the screen
+	cout << action << "\n";
+	//Return the value of the event multiplied by the number of tributes in this event.
+	return (eventvalue * number_of_tributes);
+}
+
 int bbEventOne() 
 {
 	string action = "Tribute1 grabs a backpack full of supplies and runs off into the woods";

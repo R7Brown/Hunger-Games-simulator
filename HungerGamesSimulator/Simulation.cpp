@@ -107,6 +107,7 @@ void endOfDayChecks()
 void resetUsable()
 {	
 	usableTributes = 0;
+	ListofUsableTributes.emptylist();
 	for (int i = 0; i < roster.size(); i++)
 	{
 		if (roster[i].alive)
@@ -116,4 +117,10 @@ void resetUsable()
 			usableTributes++;
 		}
 	}
+}
+
+//Resets the stats and the inventory of each tribute currently in the roster.
+void resetRoster()
+{
+
 }
