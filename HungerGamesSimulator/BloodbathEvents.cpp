@@ -1,16 +1,11 @@
 #include "Header.h"
 
-string pronounReplacer(string action, Tribute tribute, int count);
-string nameReplacer(string action, int i, Tribute tribute);
-
 //bbEvent STRUCTURE
 int bbEventExample()
 {
 	//THIS FIRST IF STATEMENT IS USED TO CHECK IF THE bbEvent CALLED CAN EVEN BE RUN
 	//DON'T FORGET THIS OR THE PROGRAM IS LIKELY TO RUN ITSELF INTO AN ENDLESS LOOP 
 	//TRYING TO GET A TRIBUTE
-	//The int number_of_tributes should be hardcoded unless the number of tributes used could vary based on certain conditions,
-	//in that case this variable should be changed as such. It will be used in the return of the method so this is essential
 	int number_of_tributes = 1;
 	if (number_of_tributes > usableTributes)
 		return 0;
@@ -59,20 +54,99 @@ int bbEventExample()
 
 int bbEventOne() 
 {
-	string action = "Tribute1 grabs a backpack full of supplies and runs off into the woods";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	int eventvalue = BLOODBATHMAXPOINTS;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
+	{
+		tribute1 = NULL;
+		delete tribute1;
+		return 0;
+	}
+	string action = "Tribute1 grabs a backpack full of supplies and runs off into the woods.";
+	tribute1->inventory.food = tribute1->inventory.food + 5;
+	tribute1->inventory.canteen_of_water = tribute1->inventory.canteen_of_water + 4;
+	tribute1->inventory.knives++;
+	tribute1->inventory.camping_equipment = tribute1->inventory.camping_equipment + 2;
+	tribute1->inventory.rope++;
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->BloodbathPoints += eventvalue;
+	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
+	{
+		tribute1->usedToday = true;
+		ListofUsableTributes.remove(true, tribute1->ID);
+	}
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return (eventvalue * 1);
 }
 
 int bbEventTwo()
 {
-	string action = "Tribute1 grabs a backpack full of supplies and runs off into the woods";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	int eventvalue = BLOODBATHMAXPOINTS;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
+	{
+		tribute1 = NULL;
+		delete tribute1;
+		return 0;
+	}
+	string action = "Tribute1 grabs a backpack full of supplies and runs off into the woods.";
+	tribute1->inventory.fishing_gear++;
+	tribute1->inventory.spear++;
+	tribute1->inventory.trident++;
+	tribute1->inventory.firewood = tribute1->inventory.firewood + 3;
+	tribute1->inventory.food = tribute1->inventory.food + 3;
+	tribute1->inventory.canteen_of_water = tribute1->inventory.canteen_of_water + 3;
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->BloodbathPoints += eventvalue;
+	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
+	{
+		tribute1->usedToday = true;
+		ListofUsableTributes.remove(true, tribute1->ID);
+	}
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return (eventvalue * 1);
 }
 
 int bbEventThree()
 {
-	string action = "Tribute1 grabs a backpack full of supplies and runs off into the woods";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	int eventvalue = BLOODBATHMAXPOINTS;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(roster.size());
+	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
+	{
+		tribute1 = NULL;
+		delete tribute1;
+		return 0;
+	}
+	string action = "Tribute1 grabs a backpack full of supplies and runs off into the woods.";
+	tribute1->inventory.arrow = tribute1->inventory.arrow + 15;
+	tribute1->inventory.bow++;
+	tribute1->inventory.first_aid_kit = tribute1->inventory.first_aid_kit + 3;
+	tribute1->inventory.firewood++;
+	tribute1->inventory.rope++;
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->BloodbathPoints += eventvalue;
+	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
+	{
+		tribute1->usedToday = true;
+		ListofUsableTributes.remove(true, tribute1->ID);
+	}
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return (eventvalue * 1);
 }
 
 int bbEventFour()
@@ -215,7 +289,7 @@ int bbEventTwentySix()
 
 int bbEventTwentySeven()
 {
-	string action = "Tribute1 grabs a shield leaning against the cornucopia";
+	string action = "Tribute1 grabs a  leaning against the cornucopia";
 	return 0;
 }
 

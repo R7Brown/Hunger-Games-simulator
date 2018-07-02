@@ -8,8 +8,8 @@ int nightEventOne()
 
 int nightEventTwo()
 {
-	string = "Tribute1 sets up camp for the night";
+	string action = "Tribute1 sets up camp for the night";
 	return 0;
 }
 
-vector <func_ptr> nightEvents = {};
+vector <func_ptr> nightEvents = { nightEventOne, nightEventTwo };

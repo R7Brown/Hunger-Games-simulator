@@ -56,14 +56,11 @@ struct Inventory {
 	int spear = 0;
 	int grenade = 0;
 	int first_aid_kit = 0;
-	int sickle = 0;
 	int rope = 0;
 	int molotov = 0;
 	int camping_equipment = 0;
 	int trident = 0;
 	int fishing_gear = 0;
-	int shield = 0;
-	int sais = 0;
 	int hatchet = 0;
 	int firewood = 0;
 	int slingshot = 0;
@@ -114,6 +111,10 @@ extern LinkedList<int> ListofUsableTributes;				//Simulation.cpp && Tribute.cpp
 
 //SIMULATION FUNCTION
 extern void simulation();
+
+//EVENTS FUNCTIONS
+extern string pronounReplacer(string action, Tribute tribute, int count);
+extern string nameReplacer(string action, int i, Tribute tribute);
 
 //MAIN MENU FUNCTIONS
 extern void buildRoster();
