@@ -26,6 +26,7 @@ vector <Tribute> roster(0);
 BOOL CtrlHandler(DWORD fdwCtrlType)
 {
 	cout << endl;
+	exit(0);
 	return true;
 }
 
