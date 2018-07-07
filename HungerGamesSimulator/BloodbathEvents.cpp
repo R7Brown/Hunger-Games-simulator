@@ -506,13 +506,13 @@ int bbEventTwentySix()
 
 int bbEventTwentySeven()
 {
-	string action = "Tribute1 grabs a  leaning against the cornucopia";
+	string action = "Tribute1 grabs a shotgun leaning against the cornucopia";
 	return 0;
 }
 
 int bbEventTwentyEight()
 {
-	string action = "Tribute1 snatches a pair of sais";
+	string action = "Tribute1 snatches a ";
 	return 0;
 }
 
