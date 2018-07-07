@@ -1,5 +1,19 @@
 #include "Header.h"
 
+//returns the number of tributes with at least some amount of bloodbath points
+int numofTributeswithPoints(int minimum)
+{
+	int temp = 0;
+	for (int i = 0; i < roster.size(); i++)
+	{
+		if (roster[i].BloodbathPoints + minimum <= BLOODBATHMAXPOINTS)
+		{
+			temp++;
+		}
+	}
+	return temp;
+}
+
 //bbEvent STRUCTURE
 int bbEventExample()
 {
@@ -11,6 +25,11 @@ int bbEventExample()
 		return 0;
 	//event value can vary depending of what happens in this event
 	int eventvalue = 0;
+	//This ensure that there exists a minimum number of tribute with a certain number of points remaining to participate in this event
+	if (numofTributeswithPoints(eventvalue) < number_of_tributes)
+	{
+		return 0;
+	}
 	//These two lines are getting a tribute pointer to point at a tribute
 	Tribute *tribute1 = NULL;
 	tribute1 = tribute1->getTribute(roster.size());
@@ -40,6 +59,7 @@ int bbEventExample()
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 	{
 		tribute1->usedToday = true;
+		usableTributes--;
 		ListofUsableTributes.remove(true, tribute1->ID);
 	}	
 	//These three lines are in charge of deleting the pointer to prdayEvent memory leaks
@@ -57,6 +77,10 @@ int bbEventOne()
 	if (usableTributes < 1)
 		return 0;
 	int eventvalue = BLOODBATHMAXPOINTS;
+	if (numofTributeswithPoints(eventvalue) < 1)
+	{
+		return 0;
+	}
 	Tribute *tribute1 = NULL;
 	tribute1 = tribute1->getTribute(roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
@@ -78,6 +102,7 @@ int bbEventOne()
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 	{
 		tribute1->usedToday = true;
+		usableTributes--;
 		ListofUsableTributes.remove(true, tribute1->ID);
 	}
 	tribute1 = NULL;
@@ -91,6 +116,10 @@ int bbEventTwo()
 	if (usableTributes < 1)
 		return 0;
 	int eventvalue = BLOODBATHMAXPOINTS;
+	if (numofTributeswithPoints(eventvalue) < 1)
+	{
+		return 0;
+	}
 	Tribute *tribute1 = NULL;
 	tribute1 = tribute1->getTribute(roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
@@ -113,6 +142,7 @@ int bbEventTwo()
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 	{
 		tribute1->usedToday = true;
+		usableTributes--;
 		ListofUsableTributes.remove(true, tribute1->ID);
 	}
 	tribute1 = NULL;
@@ -126,6 +156,10 @@ int bbEventThree()
 	if (usableTributes < 1)
 		return 0;
 	int eventvalue = BLOODBATHMAXPOINTS;
+	if (numofTributeswithPoints(eventvalue) < 1)
+	{
+		return 0;
+	}
 	Tribute *tribute1 = NULL;
 	tribute1 = tribute1->getTribute(roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
@@ -147,6 +181,7 @@ int bbEventThree()
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 	{
 		tribute1->usedToday = true;
+		usableTributes--;
 		ListofUsableTributes.remove(true, tribute1->ID);
 	}
 	tribute1 = NULL;
@@ -160,6 +195,10 @@ int bbEventFour()
 	if (usableTributes < 1)
 		return 0;
 	int eventvalue = BLOODBATHMAXPOINTS;
+	if (numofTributeswithPoints(eventvalue) < 1)
+	{
+		return 0;
+	}
 	Tribute *tribute1 = NULL;
 	tribute1 = tribute1->getTribute(roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
@@ -180,6 +219,7 @@ int bbEventFour()
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 	{
 		tribute1->usedToday = true;
+		usableTributes--;
 		ListofUsableTributes.remove(true, tribute1->ID);
 	}
 	tribute1 = NULL;
@@ -193,6 +233,10 @@ int bbEventFive()
 	if (usableTributes < 1)
 		return 0;
 	int eventvalue = BLOODBATHMAXPOINTS;
+	if (numofTributeswithPoints(eventvalue) < 1)
+	{
+		return 0;
+	}
 	Tribute *tribute1 = NULL;
 	tribute1 = tribute1->getTribute(roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
@@ -213,6 +257,7 @@ int bbEventFive()
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 	{
 		tribute1->usedToday = true;
+		usableTributes--;
 		ListofUsableTributes.remove(true, tribute1->ID);
 	}
 	tribute1 = NULL;
@@ -226,6 +271,10 @@ int bbEventSix()
 	if (usableTributes < 2)
 		return 0;
 	int eventvalue = BLOODBATHMAXPOINTS;
+	if (numofTributeswithPoints(eventvalue) < 2)
+	{
+		return 0;
+	}
 	Tribute *tribute1 = NULL;
 	Tribute *tribute2 = NULL;
 	tribute1 = tribute1->getTribute(roster.size());
@@ -250,6 +299,7 @@ int bbEventSix()
 		if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 		{
 			tribute1->usedToday = true;
+			usableTributes--;
 			ListofUsableTributes.remove(true, tribute1->ID);
 		}
 	}
@@ -260,6 +310,7 @@ int bbEventSix()
 		if (tribute2->BloodbathPoints >= BLOODBATHMAXPOINTS)
 		{
 			tribute2->usedToday = true;
+			usableTributes--;
 			ListofUsableTributes.remove(true, tribute2->ID);
 		}
 	}
@@ -269,12 +320,14 @@ int bbEventSix()
 		if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 		{
 			tribute1->usedToday = true;
+			usableTributes--;
 			ListofUsableTributes.remove(true, tribute1->ID);
 		}
 		tribute2->BloodbathPoints += eventvalue;
 		if (tribute2->BloodbathPoints >= BLOODBATHMAXPOINTS)
 		{
 			tribute2->usedToday = true;
+			usableTributes--;
 			ListofUsableTributes.remove(true, tribute2->ID);
 		}
 		action.append(" and the bag gets taken while they fight each other.");
@@ -309,6 +362,7 @@ int bbEventSeven()
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 	{
 		tribute1->usedToday = true;
+		usableTributes--;
 		ListofUsableTributes.remove(true, tribute1->ID);
 	}
 	action = nameReplacer(action, 1, *tribute1);
@@ -344,6 +398,7 @@ int bbEventNine()
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 	{
 		tribute1->usedToday = true;
+		usableTributes--;
 		ListofUsableTributes.remove(true, tribute1->ID);
 	}
 	action = nameReplacer(action, 1, *tribute1);
@@ -376,6 +431,7 @@ int bbEventTen()
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 	{
 		tribute1->usedToday = true;
+		usableTributes--;
 		ListofUsableTributes.remove(true, tribute1->ID);
 	}
 	action = nameReplacer(action, 1, *tribute1);
@@ -405,6 +461,7 @@ int bbEventEleven()
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 	{
 		tribute1->usedToday = true;
+		usableTributes--;
 		ListofUsableTributes.remove(true, tribute1->ID);
 	}
 	action = nameReplacer(action, 1, *tribute1);

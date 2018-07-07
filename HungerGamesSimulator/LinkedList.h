@@ -33,20 +33,11 @@ public:
 
 	~LinkedList<T>()
 	{
-		Node<T> * iter = first;
-		Node<T> * del = first;
+		emptylist();
 
-			while (iter->next != nullptr)
-			{
-				iter->next = iter->next;
-				del->previous = del->next = nullptr;
-				delete del;
-				del = iter;
-			}
-
-		iter->next = del->next = iter->previous = del->previous = nullptr;
-		delete iter, del, first, last;
-		iter = del = first = last = nullptr;
+		first->next = last->previous = nullptr;
+		delete first, last;
+		first = last = nullptr;
 	}
 
 	//Inserts element into the tail of the list
