@@ -20,7 +20,7 @@ const int MAX_STAT_VALUE = 10;
 int STAT_POINTS = 33;
 
 //insantiates the usable list;
-LinkedList<int> ListofUsableTributes = LinkedList<int>();
+LinkedList<int> listOfUsableTributes = LinkedList<int>();
 vector <Tribute> roster(0);
 
 BOOL CtrlHandler(DWORD fdwCtrlType)

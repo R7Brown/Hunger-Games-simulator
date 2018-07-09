@@ -29,9 +29,9 @@ Tribute* Tribute::getTribute(int vector_size) {
 		return &tribute;
 	}
 	//produces a random number from 0 to the last index of the list.
-	int temp = rand() % ListofUsableTributes.size;
+	int temp = rand() % listOfUsableTributes.size;
 	//gets the id from the list
-	int temp2 = ListofUsableTributes[temp];
+	int temp2 = listOfUsableTributes[temp];
 	//returns the tribute
 	return &roster[temp2];
 }

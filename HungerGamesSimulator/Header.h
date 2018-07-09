@@ -129,7 +129,7 @@ extern vector <func_ptr> bbEvents;							//BloodbathEvents.cpp
 extern int livingTributes;									//Simulation.cpp && DayEvents.cpp
 extern int usableTributes;									//Simulation.cpp && DayEvents.cpp
 extern int BloodBathAvailablePoints;                        //Simulation.cpp && BloodbathEvents.cpp
-extern LinkedList<int> ListofUsableTributes;				//Simulation.cpp && Tribute.cpp
+extern LinkedList<int> listOfUsableTributes;				//Simulation.cpp && Tribute.cpp
 
 //SIMULATION FUNCTION
 extern void simulation();

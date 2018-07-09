@@ -5,12 +5,8 @@ int numofTributeswithPoints(int minimum)
 {
 	int temp = 0;
 	for (int i = 0; i < roster.size(); i++)
-	{
 		if (roster[i].BloodbathPoints + minimum <= BLOODBATHMAXPOINTS)
-		{
 			temp++;
-		}
-	}
 	return temp;
 }
 
@@ -27,9 +23,7 @@ int bbEventExample()
 	int eventvalue = 0;
 	//This ensure that there exists a minimum number of tribute with a certain number of points remaining to participate in this event
 	if (numofTributeswithPoints(eventvalue) < number_of_tributes)
-	{
 		return 0;
-	}
 	//These two lines are getting a tribute pointer to point at a tribute
 	Tribute *tribute1 = NULL;
 	tribute1 = tribute1->getTribute(roster.size());
@@ -54,13 +48,13 @@ int bbEventExample()
 	action = nameReplacer(action, number_of_tributes, *tribute1);
 	//For each tribute the eventvalue should be added to their BloodBathPoints value
 	//If this operation causes the tribute to reach BLOODBATHMAXPOINTS then the tribute should be considered used
-	//The tribute then must be marked used and removed from the ListofUsableTributes
+	//The tribute then must be marked used and removed from the listOfUsableTributes
 	tribute1->BloodbathPoints += eventvalue;
 	if (tribute1->BloodbathPoints >= BLOODBATHMAXPOINTS)
 	{
 		tribute1->usedToday = true;
 		usableTributes--;
-		ListofUsableTributes.remove(true, tribute1->ID);
+		listOfUsableTributes.remove(true, tribute1->ID);
 	}	
 	//These three lines are in charge of deleting the pointer to prdayEvent memory leaks
 	//As well as removing the trubute from the list of usable tributes
@@ -103,7 +97,7 @@ int bbEventOne()
 	{
 		tribute1->usedToday = true;
 		usableTributes--;
-		ListofUsableTributes.remove(true, tribute1->ID);
+		listOfUsableTributes.remove(true, tribute1->ID);
 	}
 	tribute1 = NULL;
 	delete tribute1;
@@ -143,7 +137,7 @@ int bbEventTwo()
 	{
 		tribute1->usedToday = true;
 		usableTributes--;
-		ListofUsableTributes.remove(true, tribute1->ID);
+		listOfUsableTributes.remove(true, tribute1->ID);
 	}
 	tribute1 = NULL;
 	delete tribute1;
@@ -182,7 +176,7 @@ int bbEventThree()
 	{
 		tribute1->usedToday = true;
 		usableTributes--;
-		ListofUsableTributes.remove(true, tribute1->ID);
+		listOfUsableTributes.remove(true, tribute1->ID);
 	}
 	tribute1 = NULL;
 	delete tribute1;
@@ -220,7 +214,7 @@ int bbEventFour()
 	{
 		tribute1->usedToday = true;
 		usableTributes--;
-		ListofUsableTributes.remove(true, tribute1->ID);
+		listOfUsableTributes.remove(true, tribute1->ID);
 	}
 	tribute1 = NULL;
 	delete tribute1;
@@ -258,7 +252,7 @@ int bbEventFive()
 	{
 		tribute1->usedToday = true;
 		usableTributes--;
-		ListofUsableTributes.remove(true, tribute1->ID);
+		listOfUsableTributes.remove(true, tribute1->ID);
 	}
 	tribute1 = NULL;
 	delete tribute1;
@@ -300,7 +294,7 @@ int bbEventSix()
 		{
 			tribute1->usedToday = true;
 			usableTributes--;
-			ListofUsableTributes.remove(true, tribute1->ID);
+			listOfUsableTributes.remove(true, tribute1->ID);
 		}
 	}
 	else if (tribute2->strength < tribute1->strength)
@@ -311,7 +305,7 @@ int bbEventSix()
 		{
 			tribute2->usedToday = true;
 			usableTributes--;
-			ListofUsableTributes.remove(true, tribute2->ID);
+			listOfUsableTributes.remove(true, tribute2->ID);
 		}
 	}
 	else
@@ -321,14 +315,14 @@ int bbEventSix()
 		{
 			tribute1->usedToday = true;
 			usableTributes--;
-			ListofUsableTributes.remove(true, tribute1->ID);
+			listOfUsableTributes.remove(true, tribute1->ID);
 		}
 		tribute2->BloodbathPoints += eventvalue;
 		if (tribute2->BloodbathPoints >= BLOODBATHMAXPOINTS)
 		{
 			tribute2->usedToday = true;
 			usableTributes--;
-			ListofUsableTributes.remove(true, tribute2->ID);
+			listOfUsableTributes.remove(true, tribute2->ID);
 		}
 		action.append(" and the bag gets taken while they fight each other.");
 	}
@@ -363,7 +357,7 @@ int bbEventSeven()
 	{
 		tribute1->usedToday = true;
 		usableTributes--;
-		ListofUsableTributes.remove(true, tribute1->ID);
+		listOfUsableTributes.remove(true, tribute1->ID);
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1 = NULL;
@@ -399,7 +393,7 @@ int bbEventNine()
 	{
 		tribute1->usedToday = true;
 		usableTributes--;
-		ListofUsableTributes.remove(true, tribute1->ID);
+		listOfUsableTributes.remove(true, tribute1->ID);
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1 = NULL;
@@ -432,7 +426,7 @@ int bbEventTen()
 	{
 		tribute1->usedToday = true;
 		usableTributes--;
-		ListofUsableTributes.remove(true, tribute1->ID);
+		listOfUsableTributes.remove(true, tribute1->ID);
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1 = NULL;
@@ -462,7 +456,7 @@ int bbEventEleven()
 	{
 		tribute1->usedToday = true;
 		usableTributes--;
-		ListofUsableTributes.remove(true, tribute1->ID);
+		listOfUsableTributes.remove(true, tribute1->ID);
 	}
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1 = NULL;

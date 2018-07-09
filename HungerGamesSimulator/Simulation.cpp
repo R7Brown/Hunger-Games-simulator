@@ -150,13 +150,13 @@ void simMenu(int dayNum)
 void resetUsable()
 {	
 	usableTributes = 0;
-	ListofUsableTributes.emptylist();
+	listOfUsableTributes.emptylist();
 	for (int i = 0; i < roster.size(); i++)
 	{
 		if (roster[i].alive)
 		{
 			roster[i].usedToday = false;
-			ListofUsableTributes.insert(i);
+			listOfUsableTributes.insert(i);
 			usableTributes++;
 		}
 	}
