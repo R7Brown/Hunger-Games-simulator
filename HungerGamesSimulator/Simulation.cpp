@@ -34,10 +34,11 @@ void simulation()
 	usableTributes = roster.size();
 	//This value should be changed based on how many tributes are in the roster and on how many events you wish to take place.
 	BloodBathAvailablePoints = 200;
-
+	cout << "WELCOME TO THE HUNGER GAMES!\nPLEASE PREPARE FOR THE GAME START WITH THE BLOODBATH\n\n";
 	resetUsable();
 	while (BloodBathAvailablePoints > 0)
 		BloodBathAvailablePoints = BloodBathAvailablePoints - (bbEvents[rand() % bbEvents.size()]());
+	cout << "\n";
 
 	while (livingTributes > 1)
 	{
@@ -51,7 +52,7 @@ void simulation()
 		{
 			simMenu(dayNum);
 		}
-		//resetUsable();
+		resetUsable();
 
 		while (usableTributes > 0)
 			usableTributes = usableTributes - (nightEvents[rand() % nightEvents.size()]());
