@@ -227,7 +227,8 @@ public:
 	//Empties list back to size 0
 	void emptylist()
 	{
-		for (int i = 0; i < size; i++)
+		int temp = size;
+		for (int i = 0; i < temp; i++)
 		{
 			remove(0);
 		}

@@ -61,7 +61,7 @@ int dayEventExample()
 		return 0;
 	//These two lines are getting a tribute pointer to point at a tribute
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	//Action is the string that determines the uniqueness of each dayEvent. You can make it whatever you want really
 	string action = "";
 	/************************************************
@@ -92,7 +92,7 @@ int dayEventOne()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 goes hunting";
 	if (tribute1->endurance > 6)
 	{
@@ -121,7 +121,7 @@ int dayEventTwo()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "";
 	if (tribute1->endurance < 5)
 	{
@@ -145,7 +145,7 @@ int dayEventThree()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 explores the arena.";
 	tribute1->perception++;
 	action = nameReplacer(action, 1, *tribute1);
@@ -162,14 +162,14 @@ int dayEventFour()
 	if (usableTributes < 2)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	Tribute *tribute2 = NULL;
-	tribute2 = tribute2->getTribute(roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
 	while (tribute2->ID == tribute1->ID)
 	{
 		tribute2 = NULL;
 		delete tribute2;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(false, roster.size());
 	}
 	string action = "Tribute1 attempts to divert Tribute2's attention and run away,";
 	if (tribute1->charisma > tribute2->perception)
@@ -203,7 +203,7 @@ int dayEventFive()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 tries fishing ";
 	if (tribute1->perception > 4)
 	{
@@ -227,7 +227,7 @@ int dayEventSix()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 attempts to sharpen a stick into a spear and ";
 
 	if (tribute1->intelligence > 2)
@@ -252,7 +252,7 @@ int dayEventSeven()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 collects fruit from a tree.";
 	tribute1->inventory.food++;
 	action = nameReplacer(action, 1, *tribute1);
@@ -269,7 +269,7 @@ int dayEventEight()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 searches for clean water and ";
 
 	if (tribute1->perception > 6)
@@ -294,7 +294,7 @@ int dayEventNine()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 tries to sleep through the day to hunt at night.\n";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
@@ -310,7 +310,7 @@ int dayEventTen()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 attempts to construct a makeshift tent out of dried grass and leaves";
 	if (tribute1->intelligence > 5)
 		action.append(" and succeeds to build shelter for the night.");
@@ -331,7 +331,7 @@ int dayEventEleven()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "";
 	if (tribute1->inventory.arrow > 0 && tribute1->inventory.bow > 0)
 	{
@@ -366,7 +366,7 @@ int dayEventTwelve()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 is pricked by thorns while picking berries. No serious harm is done.";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
@@ -382,7 +382,7 @@ int dayEventThirteen()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 tries to spear fish with a large stick";
 	if (tribute1->inventory.spear == 0)
 		action.append(" but he/she1 remembers that he/she1 doesn't have anything to spear the fish with.");
@@ -411,7 +411,7 @@ int dayEventFourteen()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 searches for firewood";
 	if (tribute1->inventory.axe > 0)
 	{
@@ -439,7 +439,7 @@ int dayEventFifteen()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "";
 	if (tribute1->intelligence > 6)
 	{
@@ -462,7 +462,7 @@ int dayEventSixteen()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 travels to higher ground to view the arena";
 	tribute1->perception++;
 	action = nameReplacer(action, 1, *tribute1);
@@ -479,7 +479,7 @@ int dayEventSeventeen()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 discovers a family of ducks";
 	if (tribute1->intelligence > 2)
 	{
@@ -502,7 +502,7 @@ int dayEventEighteen()
 	if (usableTributes < 2)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 attempts to hunt for other tributes";
 	if (tribute1->luck > 5)
 	{
@@ -510,12 +510,12 @@ int dayEventEighteen()
 		{
 			action.append(" and begins following Tribute2's trail.");
 			Tribute *tribute2 = NULL;
-			tribute2 = tribute2->getTribute(roster.size());
+			tribute2 = tribute2->getTribute(false, roster.size());
 			while (tribute2->ID == tribute1->ID)
 			{
 				tribute2 = NULL;
 				delete tribute2;
-				tribute2 = tribute2->getTribute(roster.size());
+				tribute2 = tribute2->getTribute(false, roster.size());
 			}
 			if (tribute1->endurance > tribute2->endurance)
 			{
@@ -605,13 +605,13 @@ int dayEventNineteen()
 		return 0;
 	Tribute *tribute1 = NULL;
 	Tribute *tribute2 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
-	tribute2 = tribute2->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
 	while (tribute2->ID == tribute1->ID)
 	{
 		tribute2 = NULL;
 		delete tribute2;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(false, roster.size());
 	}
 	string action = "Tribute1 stalks Tribute2";
 	if (tribute2->perception > tribute1->agility)
@@ -667,7 +667,7 @@ int dayEventTwenty()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "";
 	if (tribute1->luck > 6)
 	{
@@ -697,13 +697,13 @@ int dayEventTwentyOne()
 		return 0;
 	Tribute *tribute1 = NULL;
 	Tribute *tribute2 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
-	tribute2 = tribute2->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
 	while (tribute2->ID == tribute1->ID)
 	{
 		tribute2 = NULL;
 		delete tribute2;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(false, roster.size());
 	}
 	string action = "";
 	if (tribute1->perception < 3 && tribute2->perception < 3)
@@ -775,7 +775,7 @@ int dayEventTwentyTwo()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 spends his/her1 day trying to find a way out of the arena.";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
@@ -791,7 +791,7 @@ int dayEventTwentyThree()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 wonders how long the game would take if he/she1 hid and waited for the other tributes to starve";
 	if (tribute1->intelligence > 4)
 	{
@@ -818,7 +818,7 @@ int dayEventTwentyFour()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 falls down a small cliff and is knocked out for the day";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
@@ -838,20 +838,20 @@ int dayEventTwentyFive()
 	Tribute *tribute1 = NULL;
 	Tribute *tribute2 = NULL;
 	Tribute *tribute3 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
-	tribute2 = tribute2->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
 	while (tribute2->ID == tribute1->ID)
 	{
 		tribute2 = NULL;
 		delete tribute2;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(false, roster.size());
 	}
-	tribute3 = tribute3->getTribute(roster.size());
+	tribute3 = tribute3->getTribute(false, roster.size());
 	while (tribute3->ID == tribute1->ID  || tribute3->ID == tribute2->ID)
 	{
 		tribute3 = NULL;
 		delete tribute3;
-		tribute3 = tribute3->getTribute(roster.size());
+		tribute3 = tribute3->getTribute(false, roster.size());
 	}
 	string action = "After some discussion, Tribute1, Tribute2, and Tribute3 work together for the day to find edible food and clean water";
 	int temp = tribute1->perception + tribute2->perception + tribute3->perception;
@@ -916,41 +916,41 @@ int dayEventTwentySix()
 	Tribute *tribute4 = NULL;
 	Tribute *tribute5 = NULL;
 	Tribute *tribute6 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
-	tribute2 = tribute2->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
 	while (tribute2->ID == tribute1->ID)
 	{
 		tribute2 = NULL;
 		delete tribute2;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(false, roster.size());
 	}
-	tribute3 = tribute3->getTribute(roster.size());
+	tribute3 = tribute3->getTribute(false, roster.size());
 	while (tribute3->ID == tribute1->ID || tribute3->ID == tribute2->ID)
 	{
 		tribute3 = NULL;
 		delete tribute3;
-		tribute3 = tribute3->getTribute(roster.size());
+		tribute3 = tribute3->getTribute(false, roster.size());
 	}
-	tribute4 = tribute4->getTribute(roster.size());
+	tribute4 = tribute4->getTribute(false, roster.size());
 	while (tribute4->ID == tribute1->ID || tribute4->ID == tribute2->ID || tribute4->ID == tribute3->ID)
 	{
 		tribute4 = NULL;
 		delete tribute4;
-		tribute4 = tribute4->getTribute(roster.size());
+		tribute4 = tribute4->getTribute(false, roster.size());
 	}
-	tribute5 = tribute5->getTribute(roster.size());
+	tribute5 = tribute5->getTribute(false, roster.size());
 	while (tribute5->ID == tribute1->ID || tribute5->ID == tribute2->ID || tribute5->ID == tribute3->ID || tribute5->ID == tribute4->ID)
 	{
 		tribute5 = NULL;
 		delete tribute5;
-		tribute5 = tribute5->getTribute(roster.size());
+		tribute5 = tribute5->getTribute(false, roster.size());
 	}
-	tribute6 = tribute6->getTribute(roster.size());
+	tribute6 = tribute6->getTribute(false, roster.size());
 	while (tribute6->ID == tribute1->ID || tribute6->ID == tribute2->ID || tribute6->ID == tribute3->ID || tribute6->ID == tribute4->ID || tribute6->ID == tribute5->ID)
 	{
 		tribute6 = NULL;
 		delete tribute6;
-		tribute6 = tribute6->getTribute(roster.size());
+		tribute6 = tribute6->getTribute(false, roster.size());
 	}
 	string action = "Tribute1, Tribute2, Tribute3, Tribute4, Tribute6, and Tribute5 attempt to hunt for other tributes";
 	int temp = tribute1->perception + tribute2->perception + tribute3->perception + tribute4->perception + tribute5->perception + tribute6->perception;
@@ -958,12 +958,12 @@ int dayEventTwentySix()
 	{
 		action.append(" and successfully find Tribute7 and surround him/her7.\n");
 		Tribute *tribute7 = NULL;
-		tribute7 = tribute7->getTribute(roster.size());
+		tribute7 = tribute7->getTribute(false, roster.size());
 		while (tribute7->ID == tribute1->ID || tribute7->ID == tribute2->ID || tribute7->ID == tribute3->ID || tribute7->ID == tribute4->ID || tribute7->ID == tribute5->ID || tribute7->ID == tribute6->ID)
 		{
 			tribute7 = NULL;
 			delete tribute7;
-			tribute7 = tribute7->getTribute(roster.size());
+			tribute7 = tribute7->getTribute(false, roster.size());
 		}
 		temp = tribute1->strength + tribute2->strength + tribute3->strength + tribute4->strength + tribute5->strength + tribute6->strength;
 		if (tribute7->strength > temp)
@@ -1099,7 +1099,7 @@ int dayEventTwentySeven()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "";
 	if (tribute1->intelligence > 6)
 	{
@@ -1126,7 +1126,7 @@ int dayEventTwentyEight()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 discovers a cave to use as shelter for a few days.";
 	tribute1->inventory.camping_equipment = tribute1->inventory.camping_equipment + 3;
 	action = nameReplacer(action, 1, *tribute1);
@@ -1143,7 +1143,7 @@ int dayEventTwentyNine()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "";
 	if (tribute1->luck > 4)
 	{
@@ -1171,7 +1171,7 @@ int dayEventThirty()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = ""; 
 	if (tribute1->luck > 4)
 	{
@@ -1194,7 +1194,7 @@ int dayEventThirtyOne()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "";
 	if (tribute1->luck > 4)
 	{
@@ -1217,7 +1217,7 @@ int dayEventThirtyTwo()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "";
 	if (tribute1->luck > 4)
 	{
@@ -1245,7 +1245,7 @@ int dayEventThirtyThree()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 searches for a water source";
 	if (tribute1->luck > 5)
 		action.append(" and finds a fresh water creek to drink from.");
@@ -1266,13 +1266,13 @@ int dayEventThirtyFour()
 		return 0;
 	Tribute *tribute1 = NULL;
 	Tribute *tribute2 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
-	tribute2 = tribute2->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
 	while (tribute2->ID == tribute1->ID)
 	{
 		tribute2 = NULL;
 		delete tribute2;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(false, roster.size());
 	}
 	string action = "Tribute1 and Tribute2 get into a fistfight";
 	if (tribute1->strength > tribute2->strength)
@@ -1345,34 +1345,34 @@ int dayEventThirtyFive()
 	Tribute *tribute3 = NULL;
 	Tribute *tribute4 = NULL;
 	Tribute *tribute5 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
-	tribute2 = tribute2->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
 	while (tribute2->ID == tribute1->ID)
 	{
 		tribute2 = NULL;
 		delete tribute2;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(false, roster.size());
 	}
-	tribute3 = tribute3->getTribute(roster.size());
+	tribute3 = tribute3->getTribute(false, roster.size());
 	while (tribute3->ID == tribute1->ID || tribute3->ID == tribute2->ID)
 	{
 		tribute3 = NULL;
 		delete tribute3;
-		tribute3 = tribute3->getTribute(roster.size());
+		tribute3 = tribute3->getTribute(false, roster.size());
 	}
-	tribute4 = tribute4->getTribute(roster.size());
+	tribute4 = tribute4->getTribute(false, roster.size());
 	while (tribute4->ID == tribute1->ID || tribute4->ID == tribute2->ID || tribute4->ID == tribute3->ID)
 	{
 		tribute4 = NULL;
 		delete tribute4;
-		tribute4 = tribute4->getTribute(roster.size());
+		tribute4 = tribute4->getTribute(false, roster.size());
 	}
-	tribute5 = tribute5->getTribute(roster.size());
+	tribute5 = tribute5->getTribute(false, roster.size());
 	while (tribute5->ID == tribute1->ID || tribute5->ID == tribute2->ID || tribute5->ID == tribute3->ID || tribute5->ID == tribute4->ID)
 	{
 		tribute5 = NULL;
 		delete tribute5;
-		tribute5 = tribute5->getTribute(roster.size());
+		tribute5 = tribute5->getTribute(false, roster.size());
 	}
 	string action = "Tribute1, Tribute2, Tribute3, and Tribute4 raid Tribute5's camp to destroy his/her5 survival supplies while he/she5 is away.";
 	if (tribute5->inventory.food > 0)
@@ -1413,7 +1413,7 @@ int dayEventThirtySix()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "";
 	if (tribute1->intelligence > 5)
 	{
@@ -1440,7 +1440,7 @@ int dayEventThirtySeven()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 spends the day thinking about home.";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
@@ -1456,13 +1456,13 @@ int dayEventThirtyEight()
 		return 0;
 	Tribute *tribute1 = NULL;
 	Tribute *tribute2 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
-	tribute2 = tribute2->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
 	while (tribute2->ID == tribute1->ID)
 	{
 		tribute2 = NULL;
 		delete tribute2;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(false, roster.size());
 	}
 	string action = "Tribute1 and Tribute2 split up to search for resources";
 	if ((tribute1->perception + tribute2->perception) > 10)
@@ -1495,7 +1495,7 @@ int dayEventThirtyNine()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 picks flowers";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
@@ -1513,13 +1513,13 @@ int dayEventForty()
 		return 0;
 	Tribute *tribute1 = NULL;
 	Tribute *tribute2 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
-	tribute2 = tribute2->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
 	while (tribute2->ID == tribute1->ID)
 	{
 		tribute2 = NULL;
 		delete tribute2;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(false, roster.size());
 	}
 	string action = "Tribute1 and Tribute2 run into each other in the arena and begin to fight\n";
 	if (tribute1->inventory.sword > 0 && tribute2->inventory.sword == 0)

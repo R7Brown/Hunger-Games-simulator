@@ -21,17 +21,36 @@ Tribute::Tribute() {
 	hypothermiaPoints = 0;
 }
 
-Tribute* Tribute::getTribute(int vector_size) {
+//TODO: add bool to check if bloodbath event or regular event
+Tribute* Tribute::getTribute(bool bloodbath, int vector_size) {
 	if (roster.size() <= 0)
 	{
 		//If there is no roster, then a blank slate of a tribute is returned
 		Tribute tribute;
 		return &tribute;
 	}
-	//produces a random number from 0 to the last index of the list.
-	int temp = rand() % listOfUsableTributes.size;
-	//gets the id from the list
-	int temp2 = listOfUsableTributes[temp];
+
+	int temp, temp2;
+
+	//This checks to see if the tribute is being retreived for a bloodbath event.
+	//This will pull a tribute from a separate list meant just for the bloodbath.
+	//Every other type of event will go through the normal listOfUsableTributes.
+	if (bloodbath)
+	{
+		//produces a random number from 0 to the last index of the list.
+		temp = rand() % listOfBBTributes.size;
+		//gets the id from the list
+		temp2 = listOfBBTributes[temp];
+	}
+	else
+	{
+		//produces a random number from 0 to the last index of the list.
+		temp = rand() % listOfUsableTributes.size;
+		//gets the id from the list
+		temp2 = listOfUsableTributes[temp];
+	}
+
+	
 	//returns the tribute
 	return &roster[temp2];
 }

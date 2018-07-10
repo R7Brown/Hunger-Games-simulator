@@ -1,13 +1,15 @@
 #include "Header.h"
 
 //returns the number of tributes with at least some amount of bloodbath points
+//also inserts each tribte 
 int numofTributeswithPoints(int minimum)
 {
-	int temp = 0;
+	listOfBBTributes.emptylist();
 	for (int i = 0; i < roster.size(); i++)
 		if (roster[i].BloodbathPoints + minimum <= BLOODBATHMAXPOINTS)
-			temp++;
-	return temp;
+			listOfBBTributes.insert(i);
+			
+	return listOfBBTributes.size;
 }
 
 //bbEvent STRUCTURE
@@ -26,7 +28,7 @@ int bbEventExample()
 		return 0;
 	//These two lines are getting a tribute pointer to point at a tribute
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(true, roster.size());
 	//the Tribute must have fewer points than their points plus the event value to not go over the maximum points.
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
 	{
@@ -76,7 +78,7 @@ int bbEventOne()
 		return 0;
 	}
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(true, roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
 	{
 		tribute1 = NULL;
@@ -115,7 +117,7 @@ int bbEventTwo()
 		return 0;
 	}
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(true, roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
 	{
 		tribute1 = NULL;
@@ -155,7 +157,7 @@ int bbEventThree()
 		return 0;
 	}
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(true, roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
 	{
 		tribute1 = NULL;
@@ -194,7 +196,7 @@ int bbEventFour()
 		return 0;
 	}
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(true, roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
 	{
 		tribute1 = NULL;
@@ -232,7 +234,7 @@ int bbEventFive()
 		return 0;
 	}
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(true, roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
 	{
 		tribute1 = NULL;
@@ -271,19 +273,19 @@ int bbEventSix()
 	}
 	Tribute *tribute1 = NULL;
 	Tribute *tribute2 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(true, roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
 	{
 		tribute1 = NULL;
 		delete tribute1;
 		return 0;
 	}
-	tribute2 = tribute2->getTribute(roster.size());
+	tribute2 = tribute2->getTribute(true, roster.size());
 	while ((tribute2->ID == tribute1->ID) || ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS))
 	{
 		tribute2 = NULL;
 		delete tribute2;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(true, roster.size());
 	}
 	string action = "Tribute1 and Tribute2 fight over a backpack of supplies";
 	if (tribute1->strength > tribute2->strength)
@@ -342,8 +344,12 @@ int bbEventSeven()
 		return 0;
 
 	int eventvalue = 1;
+	if (numofTributeswithPoints(eventvalue) < 1)
+	{
+		return 0;
+	}
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(true, roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
 	{
 		tribute1 = NULL;
@@ -378,8 +384,12 @@ int bbEventNine()
 		return 0;
 
 	int eventvalue = 1;
+	if (numofTributeswithPoints(eventvalue) < 1)
+	{
+		return 0;
+	}
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(true, roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
 	{
 		tribute1 = NULL;
@@ -407,8 +417,12 @@ int bbEventTen()
 	if (usableTributes < 1)
 		return 0;
 	int eventvalue = 5;
+	if (numofTributeswithPoints(eventvalue) < 1)
+	{
+		return 0;
+	}
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(true, roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
 	{
 		tribute1 = NULL;
@@ -441,8 +455,12 @@ int bbEventEleven()
 		return 0;
 
 	int eventvalue = 1;
+	if (numofTributeswithPoints(eventvalue) < 1)
+	{
+		return 0;
+	}
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(true, roster.size());
 	if ((tribute1->BloodbathPoints + eventvalue) > BLOODBATHMAXPOINTS)
 	{
 		tribute1 = NULL;

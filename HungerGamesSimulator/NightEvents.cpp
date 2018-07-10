@@ -5,7 +5,7 @@ int nightEventOne()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 wants to lie down for the night beneath a bush to hide and sleep ";
 	if (tribute1->perception > 5)
 	{
@@ -33,7 +33,7 @@ int nightEventThree()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 loses sight of where he/she1 is and wanders around all night.";
 	tribute1->perception--;
 	action = nameReplacer(action, 1, *tribute1);
@@ -50,7 +50,7 @@ int nightEventFour()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 climbs a tree to rest";
 	if (tribute1->agility > 5)
 		action.append(" and spends the night up there.");
@@ -74,7 +74,7 @@ int nightEventFive()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 goes to sleep for the night.";
 	action = nameReplacer(action, 1, *tribute1);
 	tribute1->usedToday = true;
@@ -91,13 +91,13 @@ int nightEventSix()
 		return 0;
 	Tribute *tribute1 = NULL;
 	Tribute *tribute2 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
-	tribute2 = tribute2->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
 	while (tribute2->ID == tribute1->ID)
 	{
 		tribute2 = NULL;
 		delete tribute2;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(false, roster.size());
 	}
 	string action = "Tribute1 and Tribute2 tell stories about themselves to each other to pass the time.";
 	tribute1->usedToday = true;
@@ -122,27 +122,27 @@ int nightEventSeven()
 	Tribute *tribute2 = NULL;
 	Tribute *tribute3 = NULL;
 	Tribute *tribute4 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
-	tribute2 = tribute2->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
 	while (tribute2->ID == tribute1->ID)
 	{
 		tribute2 = NULL;
 		delete tribute2;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(false, roster.size());
 	}
-	tribute3 = tribute3->getTribute(roster.size());
+	tribute3 = tribute3->getTribute(false, roster.size());
 	while (tribute3->ID == tribute1->ID || tribute3->ID == tribute2->ID)
 	{
 		tribute3 = NULL;
 		delete tribute3;
-		tribute3 = tribute3->getTribute(roster.size());
+		tribute3 = tribute3->getTribute(false, roster.size());
 	}
-	tribute4 = tribute4->getTribute(roster.size());
+	tribute4 = tribute4->getTribute(false, roster.size());
 	while (tribute4->ID == tribute1->ID || tribute4->ID == tribute2->ID || tribute4->ID == tribute3->ID)
 	{
 		tribute4 = NULL;
 		delete tribute4;
-		tribute4 = tribute4->getTribute(roster.size());
+		tribute4 = tribute4->getTribute(false, roster.size());
 	}
 	string action = "Tribute1, Tribute2, Tribute3, and Tribute4 sleep in shifts to avoid surprise attacks.";
 	action = nameReplacer(action, 1, *tribute1);
@@ -174,7 +174,7 @@ int nightEventEight()
 	if (usableTributes < 1)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 tends to his/her1 wounds";
 	if (tribute1->inventory.first_aid_kit > 0)
 	{
@@ -198,13 +198,13 @@ int nightEventNine()
 	if (usableTributes < 2)
 		return 0;
 	Tribute *tribute1 = NULL;
-	tribute1 = tribute1->getTribute(roster.size());
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 sees a fire, ";
 	if (tribute1->charisma > 6)
 	{
 		action.append("and decides to investigate, finding Tribute2.");
 		Tribute *tribute2 = NULL;
-		tribute2 = tribute2->getTribute(roster.size());
+		tribute2 = tribute2->getTribute(false, roster.size());
 		if (tribute2->charisma > tribute1->charisma)
 		{
 			action.append(" Tribute2 then convinces Tribute1 to truce for the night and shares his/her2 fire.");

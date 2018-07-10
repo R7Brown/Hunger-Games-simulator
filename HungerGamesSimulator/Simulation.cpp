@@ -40,6 +40,9 @@ void simulation()
 		BloodBathAvailablePoints = BloodBathAvailablePoints - (bbEvents[rand() % bbEvents.size()]());
 	cout << "\n";
 
+	//The list of Bloodbath Tributes is deleted from memory.
+	listOfBBTributes.~LinkedList();
+
 	while (livingTributes > 1)
 	{
 		cout << "Day: " << dayNum << "\n";

@@ -115,7 +115,7 @@ public: int ID = 0;
 		int BloodbathPoints;
 		int hypothermiaPoints;
 		Tribute();
-		Tribute* getTribute(int vector_size);
+		Tribute* getTribute(bool bloodbath, int vector_size);
 };
 //TYPEDEFS
 //An array of function pointers is how the simulation handles executing code and simulating the games
@@ -130,6 +130,7 @@ extern int livingTributes;									//Simulation.cpp && DayEvents.cpp
 extern int usableTributes;									//Simulation.cpp && DayEvents.cpp
 extern int BloodBathAvailablePoints;                        //Simulation.cpp && BloodbathEvents.cpp
 extern LinkedList<int> listOfUsableTributes;				//Simulation.cpp && Tribute.cpp
+extern LinkedList<int> listOfBBTributes;					//Simluation.ccp && BloodbathEvents.cpp
 
 //SIMULATION FUNCTION
 extern void simulation();

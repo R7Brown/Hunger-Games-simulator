@@ -21,6 +21,7 @@ int STAT_POINTS = 33;
 
 //insantiates the usable list;
 LinkedList<int> listOfUsableTributes = LinkedList<int>();
+LinkedList<int> listOfBBTributes = LinkedList<int>();
 vector <Tribute> roster(0);
 
 BOOL CtrlHandler(DWORD fdwCtrlType)
