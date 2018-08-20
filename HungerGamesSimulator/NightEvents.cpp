@@ -261,32 +261,110 @@ int nightEventNine()
 
 int nightEventTen()
 {
-	string action = "Tribute1 screams for help";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(false, roster.size());
+	string action = "Tribute1 screams for help and eventually collapses of exhaustion from it.";
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	listOfUsableTributes.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int nightEventEleven()
 {
-	string action = "Tribute1 stays awake all night";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(false, roster.size());
+	string action = "Tribute1 stays awake all night to watch for threats.";
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	listOfUsableTributes.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int nightEventTwelve()
 {
-	string action = "Tribute1 passes out from exhaustion";
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(false, roster.size());
+	string action = "";
+	if (tribute1->inventory.shovel > 1)
+	{
+		action = "Tribute1 digs himself/herself1 a small ditch to lie in for the night for safety.";
+		action = nameReplacer(action, 1, *tribute1);
+		tribute1->usedToday = true;
+		listOfUsableTributes.remove(true, tribute1->ID);
+		tribute1 = NULL;
+		delete tribute1;
+		cout << action << "\n";
+		return 1;
+	}
+	tribute1 = NULL;
+	delete tribute1;
 	return 0;
 }
 
 int nightEventThirteen()
 {
-	string action = "Tribute1 cooks his/her1 food before putting his/her1 fire out";
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(false, roster.size());
+	string action = "";
+	if (tribute1->inventory.food > 0)
+	{
+		action = "Tribute1 manages to use his/her1 food to make a good meal and feels a lot better after eating it.";
+		tribute1->injury--;
+		action = nameReplacer(action, 1, *tribute1);
+		tribute1->usedToday = true;
+		listOfUsableTributes.remove(true, tribute1->ID);
+		tribute1 = NULL;
+		delete tribute1;
+		cout << action << "\n";
+		return 1;
+	}
+	tribute1 = NULL;
+	delete tribute1;
 	return 0;
 }
 
 int nightEventFourteen()
 {
-	string action = "Tribute1 and Tribute2 decide to truce for the night";
-	return 0;
+	if (usableTributes < 2)
+		return 0;
+	Tribute *tribute1 = NULL;
+	Tribute *tribute2 = NULL;
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
+	while (tribute2->ID == tribute1->ID)
+	{
+		tribute2 = NULL;
+		delete tribute2;
+		tribute2 = tribute2->getTribute(false, roster.size());
+	}
+	string action = "Tribute1 and Tribute2 decide to truce for the night and sleep in shifts to keep an eye out for other tributes.";
+	action = nameReplacer(action, 1, *tribute1);
+	action = nameReplacer(action, 2, *tribute2);
+	tribute1->usedToday = true;
+	tribute2->usedToday = true;
+	listOfUsableTributes.remove(true, tribute1->ID);
+	listOfUsableTributes.remove(true, tribute2->ID);
+	tribute1 = NULL;
+	tribute2 = NULL;
+	delete tribute1;
+	delete tribute2;
+	cout << action << "\n";
+	return 2;
 }
 
 int nightEventFifteen()
@@ -403,4 +481,6 @@ int nightEventThirtyThree()
 	return 0;
 }
 
-vector <func_ptr> nightEvents = { nightEventOne, nightEventTwo };
+vector <func_ptr> nightEvents = {	nightEventOne,		nightEventTwo,		nightEventThree,		nightEventFour,			nightEventFive,
+									nightEventSix,		nightEventSeven,	nightEventEight,		nightEventNine,			nightEventTen,
+									nightEventEleven,	nightEventTwelve,	nightEventThirteen,		nightEventFourteen,		nightEventFifteen };

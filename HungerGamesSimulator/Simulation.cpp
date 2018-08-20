@@ -75,7 +75,7 @@ void endOfDayChecks()
 	{
 		if (roster[i].alive)
 		{
-			if (roster[i].inventory.camping_equipment > 0)
+			if (/*roster[i].inventory.camping_equipment > 0*/ false)	//I'm toying with the idea of not giving a shit about the tributes camping equipment as the night events handle this themselves for the most part
 				roster[i].inventory.camping_equipment--;
 			else
 			{
@@ -117,7 +117,10 @@ void endOfDayChecks()
 			{
 				roster[i].alive = false;
 				livingTributes--;
-				cout << roster[i].name << " succumbs to their wounds and dies.\n";
+				if (roster[i].gender == 'm')
+					cout << roster[i].name << " succumbs to his wounds and dies.\n";
+				else
+					cout << roster[i].name << " succumbs to her wounds and dies.\n";
 			}
 		}
 	}
