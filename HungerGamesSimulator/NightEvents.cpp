@@ -205,6 +205,12 @@ int nightEventNine()
 		action.append("and decides to investigate, finding Tribute2.");
 		Tribute *tribute2 = NULL;
 		tribute2 = tribute2->getTribute(false, roster.size());
+		while (tribute2->ID == tribute1->ID)
+		{
+			tribute2 = NULL;
+			delete tribute2;
+			tribute2 = tribute2->getTribute(false, roster.size());
+		}
 		if (tribute2->charisma > tribute1->charisma)
 		{
 			action.append(" Tribute2 then convinces Tribute1 to truce for the night and shares his/her2 fire.");
@@ -218,6 +224,7 @@ int nightEventNine()
 				action = nameReplacer(action, 1, *tribute1);
 				action = nameReplacer(action, 2, *tribute2);
 				tribute2->alive = false;
+				livingTributes--;
 				tribute1->usedToday = true;
 				tribute2->usedToday = true;
 				listOfUsableTributes.remove(true, tribute1->ID);
@@ -235,6 +242,7 @@ int nightEventNine()
 				action = nameReplacer(action, 1, *tribute1);
 				action = nameReplacer(action, 2, *tribute2);
 				tribute1->alive = false;
+				livingTributes--;
 				tribute1->usedToday = true;
 				tribute2->usedToday = true;
 				listOfUsableTributes.remove(true, tribute1->ID);
@@ -375,32 +383,164 @@ int nightEventFifteen()
 
 int nightEventSixteen()
 {
-	string action = "Tribute1, Tribute2, and Tribute3 discuss the games and what might happen in the morning";
-	return 0;
+	if (usableTributes < 3)
+		return 0;
+	Tribute *tribute1 = NULL;
+	Tribute *tribute2 = NULL;
+	Tribute *tribute3 = NULL;
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
+	while (tribute2->ID == tribute1->ID)
+	{
+		tribute2 = NULL;
+		delete tribute2;
+		tribute2 = tribute2->getTribute(false, roster.size());
+	}
+	tribute3 = tribute3->getTribute(false, roster.size());
+	while (tribute3->ID == tribute1->ID || tribute2->ID == tribute3->ID)
+	{
+		tribute3 = NULL;
+		delete tribute3;
+		tribute3 = tribute3->getTribute(false, roster.size());
+	}
+	string action = "Tribute1, Tribute2, and Tribute3 discuss the game so far and what might happen in the morning.";
+	action = nameReplacer(action, 1, *tribute1);
+	action = nameReplacer(action, 2, *tribute2);
+	action = nameReplacer(action, 3, *tribute3);
+	tribute1->usedToday = true;
+	tribute2->usedToday = true;
+	tribute3->usedToday = true;
+	listOfUsableTributes.remove(true, tribute1->ID);
+	listOfUsableTributes.remove(true, tribute2->ID);
+	listOfUsableTributes.remove(true, tribute3->ID);
+	tribute1 = NULL;
+	tribute2 = NULL;
+	tribute3 = NULL;
+	delete tribute1;
+	delete tribute2;
+	delete tribute3;
+	cout << action << "\n";
+	return 3;
 }
 
 int nightEventSeventeen()
 {
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 cries himself/herself1 to sleep";
-	return 0;
+	tribute1->charisma--;
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	listOfUsableTributes.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int nightEventEighteen()
 {
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(false, roster.size());
 	string action = "Tribute1 tries to treat his/her1 wounds";
-	return 0;
+	if (tribute1->inventory.first_aid_kit > 0)
+	{
+		tribute1->inventory.first_aid_kit--;
+		tribute1->injury--;
+		action.append(" and successfully treats some injuries.");
+	}
+	else
+		action.append(" but spends all night not really improving his/her1 health.");
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	listOfUsableTributes.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int nightEventNineteen()
 {
-	string action = "Tribute1 and Tribute2 talk about the tributes still alive";
-	return 0;
+	if (usableTributes < 2)
+		return 0;
+	Tribute *tribute1 = NULL;
+	Tribute *tribute2 = NULL;
+	tribute1 = tribute1->getTribute(false, roster.size());
+	tribute2 = tribute2->getTribute(false, roster.size());
+	while (tribute2->ID == tribute1->ID)
+	{
+		tribute2 = NULL;
+		delete tribute2;
+		tribute2 = tribute2->getTribute(false, roster.size());
+	}
+	string action = "Tribute1 and Tribute2 talk about the tributes still alive before agreeing to truce for the night.";
+	if (tribute1->luck == 1)
+	{
+		action.append("\n\tBut Tribute2 betrays the truce and smothers Tribute1 in his/her1 sleep.");
+		action = nameReplacer(action, 1, *tribute1);
+		action = nameReplacer(action, 2, *tribute2);
+		livingTributes--;
+		tribute1->alive = false;
+		tribute1->usedToday = true;
+		tribute2->usedToday = true;
+		listOfUsableTributes.remove(true, tribute1->ID);
+		listOfUsableTributes.remove(true, tribute2->ID);
+		tribute1 = NULL;
+		tribute2 = NULL;
+		delete tribute1;
+		delete tribute2;
+		cout << action << "\n";
+		return 2;
+	}
+	else if (tribute2->luck == 1)
+	{
+		action.append("\n\tBut Tribute1 betrays the truce and smothers Tribute2 in his/her2 sleep.");
+		action = nameReplacer(action, 1, *tribute1);
+		action = nameReplacer(action, 2, *tribute2);
+		livingTributes--;
+		tribute2->alive = false;
+		tribute1->usedToday = true;
+		tribute2->usedToday = true;
+		listOfUsableTributes.remove(true, tribute1->ID);
+		listOfUsableTributes.remove(true, tribute2->ID);
+		tribute1 = NULL;
+		tribute2 = NULL;
+		delete tribute1;
+		delete tribute2;
+		cout << action << "\n";
+		return 2;
+	}
+	tribute1->usedToday = true;
+	tribute2->usedToday = true;
+	listOfUsableTributes.remove(true, tribute1->ID);
+	listOfUsableTributes.remove(true, tribute2->ID);
+	tribute1 = NULL;
+	tribute2 = NULL;
+	delete tribute1;
+	delete tribute2;
+	cout << action << "\n";
+	return 2;
 }
 
 int nightEventTwenty()
 {
-	string action = "Tribute1 is awoken by nightmares";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(false, roster.size());
+	string action = "Tribute1 is awoken by nightmares and has difficulty sleeping for the rest of the night.";
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->usedToday = true;
+	listOfUsableTributes.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int nightEventTwentyOne()
@@ -423,8 +563,19 @@ int nightEventTwentyThree()
 
 int nightEventTwentyFour()
 {
-	string action = "Tribute1 looks up at the night sky";
-	return 0;
+	if (usableTributes < 1)
+		return 0;
+	Tribute *tribute1 = NULL;
+	tribute1 = tribute1->getTribute(false, roster.size());
+	string action = "Tribute1 looks up at the night sky and learns a little bit about their surroundings by studying the constellations.";
+	action = nameReplacer(action, 1, *tribute1);
+	tribute1->perception++;
+	tribute1->usedToday = true;
+	listOfUsableTributes.remove(true, tribute1->ID);
+	tribute1 = NULL;
+	delete tribute1;
+	cout << action << "\n";
+	return 1;
 }
 
 int nightEventTwentyFive()
